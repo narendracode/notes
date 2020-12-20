@@ -1,0 +1,253 @@
+
+
+Must solve DP Questions to practice(Combined from various sources) : 
+----------------------------------------------------------------------
+0/1 knapsack :
+	1. 0/1 knapsack(https://www.hackerearth.com/problem/algorithm/knapsack-1/)
+	2. Equal subset sum partition(https://www.hackerearth.com/practice/algorithms/graphs/topological-sort/practice-problems/algorithm/partition-it-4cc63265/)
+	3. Minimum subset sum difference (https://www.hackerearth.com/problem/algorithm/minimum-sum-partitioning/)
+	4. Count of subset sum(https://www.geeksforgeeks.org/perfect-sum-problem-print-subsets-given-sum/)
+	5. Target Sum(https://www.hackerearth.com/problem/algorithm/print-subset-sum-to-k/)
+	6. Count the number of subset with a given difference
+Unbounded knapsack : 
+	1. Fibonacci numbers
+	2. Staircase
+	3. Number factors
+	4. Minimum jumps to reach the end
+	5. Minimum jumps with fee
+	6. House Thief
+	7. Rod Cutting problem
+	8. Coin change problem : Maximum number of ways
+	9. Coin change problem : Minimum number of coins
+Longest Common Substring :
+	1. Longest Common Substring
+	2. Longest Common Sequence
+	3. Minimum Deletions & Insertions to Transform a string into another
+	4. Longest Increasing Subsequence
+	5. Shortest Common Super-Sequence
+	6. Minimum Deletions to Make a Sequence sorted
+	7. Longest Repeating subsequence
+	8. Subsequence Pattern Matching
+	9. Longest Bitonic Subsequence
+	10. Longest Alternative Subsequence
+	11. Edit Distance
+	12. String Interleaving
+	13. Longest Palindromic Subsequence
+	14. Minimum number of insertion in a string to make it a palindrome
+Matrix Chain Multiplication :
+	1. Egg Dropping
+	2. Scrambled String
+	3. Palindrome Partitioning
+
+
+
+Leet Code :
+-----------
+Longest Palindromic Substring	
+Regular Expression Matching
+Longest Valid Parentheses
+Wildcard Matching
+Maximum Subarray
+Unique Paths
+Unique Paths II	
+Minimum Path Sum
+Climbing Stairs	
+Edit Distance
+Maximal Rectangle
+Scramble String
+Decode Ways
+Unique Binary Search Trees II
+Unique Binary Search Trees
+Interleaving String
+Distinct Subsequences
+Triangle
+Best Time to Buy and Sell Stock
+Best Time to Buy and Sell Stock
+Palindrome Partitioning II
+Word Break
+Word Break II
+Maximum Product Subarray
+Dungeon Game
+Best Time to Buy and Sell Stock IV
+House Robber
+House Robber II
+Maximal Square
+Paint House
+Ugly Number II
+Paint House II
+Paint Fence
+Perfect Squares
+Longest Increasing Subsequence
+Range Sum Query - Immutable
+Range Sum Query 2D - Immutable
+Best Time to Buy and Sell Stock with Cooldown
+Burst Balloons
+Create Maximum Number
+Coin Change
+Counting Bits
+Integer Break
+Android Unlock Patterns
+Russian Doll Envelopes
+Count Numbers with Unique Digits
+Bomb Enemy
+Max Sum of Rectangle No Larger Than K
+Largest Divisible Subset
+Guess Number Higher or Lower II
+Wiggle Subsequence
+Combination Sum IV
+Is Subsequence
+Frog Jump
+Split Array Largest Sum
+Arithmetic Slices
+Partition Equal Subset Sum
+Sentence Screen Fitting
+Arithmetic Slices II - Subsequence
+Can I Win
+Count The Repetitions
+Unique Substrings in Wraparound String
+Encode String with Shortest Length
+Concatenated Words
+Ones and Zeroes
+Predict the Winner
+Target Sum
+Freedom Trail
+Longest Palindromic Subsequence
+Super Washing Machines
+Continuous Subarray Sum
+Remove Boxes
+Student Attendance Record II
+Maximum Vacation Days
+Out of Boundary Paths
+Non-negative Integers without Consecutive Ones
+K Inverse Pairs Array
+Shopping Offers
+Decode Ways II
+Maximum Length of Pair Chain
+Palindromic Substrings
+2 Keys Keyboard
+4 Keys Keyboard
+Coin Path
+Strange Printer
+Number of Longest Increasing Subsequence
+Knight Probability in Chessboard
+Maximum Sum of 3 Non-Overlapping Subarrays
+Stickers to Spell Word
+Partition to K Equal Sum Subsets
+Minimum ASCII Delete Sum for Two Strings
+Best Time to Buy and Sell Stock with Transaction Fee
+Maximum Length of Repeated Subarray
+Minimum Window Subsequence
+Count Different Palindromic Subsequences
+Delete and Earn
+Cherry Pickup
+Min Cost Climbing Stairs
+Number Of Corner Rectangles
+Largest Plus Sign
+Cheapest Flights Within K Stops
+Domino and Tromino Tiling
+Minimum Swaps To Make Sequences Increasing
+Soup Servings
+Largest Sum of Averages
+Race Car
+New 21 Game
+Push Dominoes
+Shortest Path Visiting All Nodes
+Minimum Number of Refueling Stops
+Length of Longest Fibonacci Subsequence
+Stone Game
+Profitable Schemes
+Super Egg Drop
+Bitwise ORs of Subarrays
+Numbers At Most N Given Digit Set
+Valid Permutations for DI Sequence
+Number of Music Playlists
+Minimum Falling Path Sum
+Knight Dialer
+Distinct Subsequences II
+Find the Shortest Superstring
+Tallest Billboard
+Delete Columns to Make Sorted III
+Least Operators to Express Number
+Numbers With Same Consecutive Differences
+Binary Tree Cameras
+Odd Even Jump
+Longest Turbulent Subarray
+Triples with Bitwise AND Equal To Zero
+Minimum Cost For Tickets
+Minimum Cost to Merge Stones
+Shortest Way to Form String
+Minimize Rounding Error to Meet Target
+Numbers With Repeated Digits
+Campus Bikes II
+Digit Count in Range
+Video Stitching
+Divisor Game
+Longest Arithmetic Sequence
+Parallel Courses
+Minimum Score Triangulation of Polygon
+Longest String Chain
+Last Stone Weight II
+Number of Submatrices That Sum to Target
+Toss Strange Coins
+Minimum Time to Build Blocks
+Shortest Common Supersequence
+Valid Palindrome III
+Filling Bookcase Shelves
+Delete Tree Nodes
+Palindrome Removal
+Handshakes That Don't Cross
+Smallest Sufficient Team
+Minimum Falling Path Sum II
+Minimum Cost Tree From Leaf Values
+Number of Paths with Max Score
+Largest 1-Bordered Square
+Stone Game II
+Matrix Block Sum
+Longest Common Subsequence
+Longest Chunked Palindrome Decomposition
+Number of Dice Rolls With Target Sum
+Largest Multiple of Three
+Constrained Subsequence Sum
+Maximum Subarray Sum with One Deletion
+Make Array Strictly Increasing
+Kth Ancestor of a Tree Node
+K-Concatenation Maximum Sum
+Longest Happy String
+Longest Arithmetic Subsequence of Given Difference
+Count Vowels Permutation
+Dice Roll Simulation
+Maximum Profit in Job Scheduling
+Tiling a Rectangle with the Fewest Squares
+Airplane Seat Assignment Probability
+Greatest Sum Divisible by Three
+Number of Ways to Stay in the Same Place After Some Steps
+Count Square Submatrices with All Ones
+Palindrome Partitioning III
+Minimum Insertion Steps to Make a String Palindrome
+Minimum Distance to Type a Word Using Two Fingers
+Minimum Number of Taps to Open to Water a Garden
+Minimum Difficulty of a Job Schedule
+Count All Valid Pickup and Delivery Options
+Maximum Product of Splitted Binary Tree
+Jump Game V	
+Maximum Students Taking Exam
+Longest ZigZag Path in a Binary Tree
+Maximum Sum BST in Binary Tree
+Linked List in Binary Tree
+Pizza With 3n Slices
+Reducing Dishes
+Find All Good Strings
+Restore The Array
+Stone Game III
+Number of Ways to Paint N × 3 Grid
+Number of Ways to Wear Different Hats to Each Other
+Build Array Where You Can Find The Maximum Exactly K Comparisons
+Maximum Points You Can Obtain from Cards
+Form Largest Integer With Digits That Add up to Target
+Number of Ways of Cutting a Pizza
+Cherry Pickup II
+Max Dot Product of Two Subsequences
+Allocate Mailboxes
+Find Two Non-overlapping Sub-arrays Each With Target Sum
+Paint House III
+Count Submatrices With All Ones

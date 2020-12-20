@@ -1,0 +1,108 @@
+Software Development Life Cycle (SDLC) :
+-------------------------------------
+1. Requirement Phase
+Business Analyst collects the requirement from customer/client as per client's business needs and documents the requirements in the Business Requirement Specification(BRS) and provides the same to Development Team.
+
+2. Analysic Phase
+Based on requirement gathering, define and document the product requirement. Prepare Software Requirement Specification(SRS).
+
+3. Design Phase
+After SRS is approved, prepare High Level Design(HLD) and Low Level Design(LLD). HLD gives the architecture of the software product. LLD describes how each and every feature/component in the product should work.
+
+4. Development Phase
+Write codes based on HLD and LLD. Create code documentation, collaborate, manage source codes of project.
+
+5. Testing Phase
+After development of product, testing(QA) start testing and logging bugs/errors. Developers fix the errors and QA team re-verify if all is good. If all bugs are covered, QA gives signoff for release.
+
+6. Deployment and Maintenance Phase
+After deployment product goes live. Once project is live then clients/users share feedback on improvement, changes required or bugs reported if any. Hence team works to implement the changes. Also team does regular maintenance as per Service Level Agreement.
+
+
+
+Software Development Methodologies :
+----------------------------------
+- Waterfall Development :
+	Waterfall model is a sequential development approach in which development is seen as flowing steadily downwards(like waterfall) through several phases, typically :
+		- Requiremnt analysis
+		- Software Design
+		- Implementation
+		- Testing
+		- Integration
+		- Deployment
+		- Maintenance
+
+- Incremental Development
+	It favors iterative systems development methodologies, with the primary objective of each being to reduce inherent project risk by breaking a project into smaller segments and providing more ease-of-change during the development process.
+	Three variants of Incremental Development :
+		- A series of mini waterfalls are performed, where all phases  of the waterfall are completed for a small part of a system, before proceeding to the next increment
+		- Overall requirements are defined before proceeding to evolutionary, mini-waterfall development of individual increments of a system
+		- The initial software concept, requirements, analysis and design of architecture and system core are defined via waterfall, followed by incremental implementation, which culminates in installing the final version, a working system.
+
+- Rapid Application Development
+	Rapid application development (RAD) is a software development methodology, which favors iterative development and the rapid construction of prototypes instead of large amounts of up-front planning. The "planning" of software developed using RAD is interleaved with writing the software itself. The lack of extensive pre-planning generally allows software to be written much faster, and makes it easier to change requirements.
+
+- Spiral Development
+	It combines some aspect of waterfall model and rapid prototyping methodologies, in an effort to combine advantages of top-down and bottom-up concepts. It provided emphasis in a key area many felt had been neglected by other methodologies: deliberate iterative risk analysis, particularly suited to large-scale complex systems.
+
+- Agile
+	- Kanban (continious)
+	- Scrum  (2 week sprint)
+
+
+
+
+Software Testing Life Cycle (STLC) :
+----------------------------------
+1. Requirement Analysis
+Analyse Business Requirement Specifcation from testing point of view. If any requirement is not testable or any risk then highlight during this phase so that any mitigation can be planned.
+
+2. Test Planning
+Analyse effort, cost and time for testing.
+
+3. Test Design
+Write test cases, test script, prepare test data. Review test cases. 
+
+4. Test Environment Setup
+Set up environment like server setup, software installation, account creation. Smoke test execution.
+
+5. Test Execution
+Running of test cases as per planning, capture the results. Prepare defect report and share with Development Team.
+
+6. Test Closure
+Prepare matrix regarding performance, benchmarking and over all quality of software.
+
+
+
+Types of Software testing :
+--------------------------
+- Functional Testing
+	- Unit testing
+	- Integration Testing
+	- System Testing
+	- Interface Testing
+	- Regression Testing
+	- User Acceptance Testing
+
+- Non-Functional Testing
+	- Documentation Testing
+	- Installation Testing
+	- Reliability Testing
+	- Security Testing
+	- Performance Testing
+		- Load Testing
+		- Stress Testing
+		- Endurance Testing
+		- Spike Testing
+
+
+Agile vs Scrum vs Kanban
+------------------------
+Agile is an umbrella term used to describe a project management methodology which breaks down large complex projects into smaller manageable chunks. Agile is a set of guiding principles developed in 2001 published as the Agile Manifesto.  Scrum and Kanban, on the other hand, are two methodologies which are considered to be Agile. Or to put it another way, if you want to work in an agile fashion, Scrum and Kanban are two ways to do it.
+Both Scrum and Kanban are two different agile project methodologies with "subtle" differences. But Carrier noted how both methodologies share similarities. "Both methods use a physical board, or digital replication of one, where people move work between roughly three categories: 1) work [that needs to be done], 2)  work that is in progress, and 3) work that has been completed."
+
+Scrum methodology breaks down the development cycle time-limited work periods, called sprints, which usually lasts for two weeks. 
+
+Project managers plan what initiatives will be done within the two-week sprints, as well as hold daily meetings (aka stand-ups) to check in with the team on how the project is moving along. Managers also use these stand-ups to demo new releases to the client prior to launch.
+
+Scrum has a more pre-defined structured framework, whereas Kanban is less so. Kanban is less structured and is based on a list (aka backlog) of items to do. Kanban doesn't have a set timeframe for when items need to be done. Instead, this methodology is managed by priority of items (i.e. tickets/cards) on a Kanban Board. The board has different columns which let managers know the status of an item being worked on, including to-do's, in-progress and complete tasks.

@@ -1,0 +1,107 @@
+Object oriented Basics
+----------------------
+OOP is a style of programming that focuses on using objects to design and build applications. Contrary to prodecure-oriented programming where programs are designed as blocks of statements to manipulate data. OOP organizes the program to combine data and functionality and wrap it inside something called an "Object".
+
+Objects : Objects represents a real world entity and the basic building block of OOP. Eg; an online shopping system will have objects such as shopping card, customer, product item etc.
+
+Class : Class is the prototype or blueprint of an object. It is template definition of the attributes and methods of an object. 
+eg; In the Online Shopping System, the Customer object will have attributes like shipping address, credit card etc and methods for placing an order, cancelling an order etc.
+
+Principles of Object Oriented programming :
+------------------------------------------
+
+Encapsulation : Encapsulation is the mechanism of binding the data together and hiding it from the outside world. Encapsulation is achieved when each object keeps its state private so that other objects don't have direct access to it's state. Instead they can access this state only through a set of public functions.
+
+Abstraction: Abstraction can be thought of as the natural extension of encapsulation. It means hiding all but the relevant data about an object in order to reduce the complexity of the system. In a large system, objects talk to each other, which makes it difficult to maintain a large code base; abstraction helps by hiding internal implementation details of objects and only revealing operations that are relevant to other objects.
+
+Inheritance: Inheritance is the mechanism of creating new classes from existing ones.
+
+Polymorphism: Polymorphism means many forms. It is the ability of an object to take different forms and thus, depending upon the context, to respond to the same message in different ways. Take the example of chess; a chess piece can take many forms, like bishop, castle or knight and all thse peices will repond differently to the "move" message.
+
+
+UML(Unified Modeling Language)
+------------------------------
+UML is used to model the Object Oriented Aanlysis of a software system. 
+Types of UML:
+1. Structural UML Diagrams
+    - Class Diagram
+    - Object Diagram
+    - Package Diagram
+    - Component Diagram
+    - Composite Structure Diagram
+    - Deployment Diagram
+    - Profile Diagram
+2. Behavioral UML Diagrams
+    - Use Case Diagram
+    - Activity Diagram
+    - Sequence Diagram
+    - State Diagram
+    - Communication Diagram
+    - Interaction Overview Diagram
+    - Timing Diagram
+
+Use Case Diagram
+---------------
+It describe a set of actions(called use cases) that a system should or can perform in collaboration with one or more external users of the system (called actors). Each use case should provide some observable and valuable result to the actors.
+    1. Use Case Diagrams describe the high level functional behavior of the system
+    2. It answers what system does from the user point of view.
+    3. It answers 'What will the system do?' and at the same time tells us 'What will the system Not do?'.
+Key components : Actors, Use casess. 
+
+Class Diagram
+-------------
+It is the backbone of object-orinted modeling. It shows how differnet entities relate to each other. 
+The purpose of class diagram can be summarized as :
+- Aanlysis and design of the static view of an application
+- To describe the responsibilities of a system
+- To provide a base for component and deployment Diagrams
+- Forward and reverse engineering
+
+    example of class diagram:
+    Flight
+        fields :
+            flightNumber: string
+            departureAirport: Airport
+            arrivalAirport: Airport
+            duration: int
+        methods:
+            cancelFlight(): bool
+            addFlightSchedule(): bool
+            getInstances(): list<FlightInstance>
+
+Associatiation:
+If two classes in a model need to communicate with each other, there must be a link between them. This can be represented by an association.  Association are represented by a line between the classes with an arrow indicating the navigation direction.
+
+Aggregation: Aggregation is a special type of association used to model a "whole of its parts" relationship. In a basic aggregation relationship, the lifecycle of a PART class is independent of the WHOLE class’s lifecycle.
+
+Composition: The composition aggregation relationship is just another form of the aggregation relationship, but the child class’s instance lifecycle is dependent on the parent class’s instance lifecycle. In other words, Composition implies a relationship where the child cannot exist independent of the parent.
+
+Generalization: Generalization is the mechanism for combining similar classes of objects into a single, more general class. Generalization identifies commonalities among a set of entities. In the above diagram, Crew, Pilot, and Admin, all are Person.
+
+Dependency : A dependency relationship is a relationship in which one class, the client, uses or depends on another class, the supplier. 
+
+Abstract class: An abstract class is identified by specifying its name in italics. In the above diagram, both Person and Account classes are abstract classes.
+
+
+Sequence Diagrams:
+------------------
+Sequence diagrams describe interactions among classes in terms of an exchange of messages over time and are used to explore the logic of complex operations, functions or procedures. In this diagram, the sequence of interactions between the objects is represented in a step-by-step manner.
+A sequence diagram has two dimensions: The vertical dimension shows the sequence of messages in the chronological order that they occur; the horizontal dimension shows the object instances to which the messages are sent.
+
+Activity Diagram :
+------------------
+We use Activity Diagrams to illustrate the flow of control in a system. An activity diagram shows the flow of control for a system functionality; it emphasizes the condition of flow and the sequence in which it happens. We can also use an activity diagram to refer to the steps involved in the execution of a use case.
+
+
+
+Approach to solve Data modelling questions :
+-------------------------------------------
+1. Requirements and goals of system
+    Write down the scope of system, Who can interact with system and what they can do.
+    Write down all the requirements not just from end user point of view but also consider what admin can do or other actors can do. It does include sytem as an actor too.
+2. Identify actors of system and what tasks they perform
+3. Identify use cases
+4. Class Diagram
+5. Activity Diagram for each use case
+6. 
+

@@ -1,0 +1,132 @@
+
+
+Java sollectinos cheatsheet
+===========================
+
+
+ArrayList
+---------
+List<Double> list = new ArrayList<Double>();
+
+sort
+	java.util.Collections.sort(list);
+sort desc
+	Collections.sort(list, Collections.reverseOrder());
+binarySearch
+	int searchIndex = Collections.binarySearch(temperatureList, 37.8);
+fill
+	 Collections.fill(temperatureList, 0.0);
+shuffle
+	Collections.shuffle(temperatureList);
+max
+	Collections.max(temperatureList);
+min
+	Collections.min(temperatureList);
+reverse
+	Collections.reverse(temperatureList);
+remove
+	list.remove(<value>);
+replace
+	list.set(index, value);
+
+
+Java Custom sort
+----------------
+Using compareable
+public class Player implements Comparable<Player> {
+	private int ranking;
+    private String name;
+    private int age;
+
+	// constructor, getters, setters
+
+    @Override
+    public int compareTo(Player otherPlayer) {
+        return Integer.compare(getRanking(), otherPlayer.getRanking());
+    }
+}
+
+List<Player> footballTeam = new ArrayList<>();
+Player player1 = new Player(59, "John", 20);
+Player player2 = new Player(67, "Roger", 22);
+Player player3 = new Player(45, "Steven", 24);
+footballTeam.add(player1);
+footballTeam.add(player2);
+footballTeam.add(player3);
+
+System.out.println("Before Sorting : " + footballTeam);
+Collections.sort(footballTeam);
+
+Using Comparator
+public class PlayerRankingComparator implements Comparator<Player> {
+    @Override
+    public int compare(Player firstPlayer, Player secondPlayer) {
+       return Integer.compare(firstPlayer.getRanking(), secondPlayer.getRanking());
+    }
+}
+
+PlayerRankingComparator playerComparator = new PlayerRankingComparator();
+Collections.sort(footballTeam, playerComparator);
+
+Using java 8
+Comparator byRanking = (Player player1, Player player2) -> Integer.compare(player1.getRanking(), player2.getRanking());
+Comparator<Player> byRanking = Comparator.comparing(Player::getRanking);
+Comparator<Player> byAge = Comparator.comparing(Player::getAge);
+
+Stack
+-----
+Stack stack = new Stack();
+//generic
+Stack<String> stack = new Stack<String>();
+push
+	stack.push("1");
+pop
+	String topElement = stack.pop();
+top element
+	String topElement = stack.peek();
+search
+	int index = stack.search("3"); 
+size
+	int size = stack.size();
+iterate over all elements
+	Iterator iterator = stack.iterator();
+	while(iterator.hasNext()){
+		Object value = iterator.next();
+	}
+process stack using stream
+	Stream stream = stack.stream();
+
+	stream.forEach((element) -> {
+		System.out.println(element);  // print element
+	});
+
+
+Queue
+-----
+Queue<Integer> q  = new LinkedList<>();
+add
+	q.add(value);
+remove head
+	q.remove()
+peek
+	q.peek()
+size
+	q.size()
+
+PriorityQueue(Min Heap)
+------------
+Queue<String> pq = new PriorityQueue<>(); 
+
+iterate
+	Iterator iterator = pq.iterator(); 
+top 
+	String value = pq.peek();
+remove top 
+	String value = pq.poll();
+
+iterator 
+	Iterator itr = pQueue.iterator(); 
+
+PriorityQueue(Max Heap)
+----------------------
+PriorityQueue<Integer> pQueue =  new PriorityQueue<Integer>(Collections.reverseOrder());

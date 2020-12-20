@@ -1,0 +1,35 @@
+Blocking Queue :
+-----------------
+
+
+Types of Blocking Queue :
+    - unbounded queue : can grow almost indefinitely
+    - bounded queue : with maximal capacity defined
+
+Creating unbounded queues is simple :
+BlockingQueue<String> blockingQueue = new LinkedBlockingDequeue<>();
+
+The capacity of blockingQueue will be set to Integer.MAX_VALUE as default hence all operations that add an element to the unbounded queue will never block, thus it could grow to a larger size.
+
+
+Creating bounded queues is simple :
+BlockingQueue<String> blockingQueue = new LinkedBlockingDequeue<>(10);
+
+Here we have a blockingQueue that has a capacity equal to 10. It means that when a producer tries to add an eleemnt to an already full queue, depending on a method that was used to add it offer(,add(), or put() ) it will block untill space for inserting object becomes available. Othersise, the operations will fail.
+
+Using bounded queue is a good way to design concurrent programs because when we insert an element to an already full queue, that operation need to wait untill consumers catch up and make some space available in the queue. It gives us throttling without any effort on our part.
+
+
+Adding Elements :
+----------------
+add() returns true if insertion was successful. otherwise throws IllegalStateException
+put() - insert the specified element into a queue, waiting for a free slot if necessary
+offer() - returns true if insertion was successful, otherwise false
+offer(long timeout) - tries to insert eleemnt into a queue and waits for an available slot within a specified timeout 
+
+Retrieving :
+-----------
+take() : waits for a head element of queue and removes it. If the queue is empty, it blocks and waits for an element to become available.
+poll(timeout) - retrieves the head of the queue, waiting up to the specified wait time if necessary for an element to become available.
+
+

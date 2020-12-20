@@ -1,0 +1,78 @@
+
+ 
+Dependency Injectin :
+In Dependency Injection, you do not have to create your objects but have to describe how they should be created. You don't connect your components and services together in the code directly, but describe which services are needed by which component in the configuration file. The IOC container will wire them up together.
+Dependency Injection is where spring searches for beans, once the appropriate bean is found, it autowires the bean to the depdendent class. Dependency Injection is the process where spring framework looks for the beans and identifies the dependencies,  and creates the instances of beans and autowires them.
+Dependency injection can be done in three ways : 
+	- Construction Injection
+	- Setter Injection
+	- Interface Injection
+
+
+Inversion of Control : 
+In Tight Coupling the dependent class takes the responsibility of creating the dependency. Whereas, in loose coupling, we use @Autowired annotation over the dependency class and spring takes control of creating the instance and injects the dependency.
+IOC does the following things :
+	- Find beans
+	- Identify the dependenceis and wire the dependencies
+	- Manage lifecycle of beans (creating, processing and destruction)
+Different types of IOC containers : 
+	- Bean factory : Beanfactory is like a factory class that contains a collection of beans. It instantiates the bean whenever asked for by clients.
+	- ApplicationContext : The ApplicationContext interface is built on top of the BeanFactory. It provides some extra functionality on top BeanFactory.
+
+Benefits of IOC : 
+	- Less code
+	- easy to test because it doesn't require any singletons or JNDI lookup mechanisms in your unit test cases.
+	- It promotes loose coupling with minimal effort and lest intrusive mechanism.
+	- It supports eager instantiation and lazy loading of the services.
+
+
+Application Context :
+It provides all the functionalities of Bean Factory and also provides things like AOP, i18n, web application context (request, session etc)
+
+Bean Scopes : 
+Singleton - Throughout the spring context only one instance is created
+Prototype - A new bean is created whenever requested
+Request - Every HTTP request creates a bean
+Session - A bean for every HTTP session
+Global-session : This provides scope for a bean definition to an Global HTTP session.
+
+By default, a Spring Bean is initialized as a singleton.
+
+
+Are the Singleton beans Thread Safe?
+No, singleton beans are not thread-safe, as thread safety is about execution, whereas the singleton is a design pattern focusing on creation. Thread safety depends only on the bean implementation itself.
+
+
+How does the scope Prototype work?
+Scope prototype means that everytime you call for an instance of the Bean, spring will create a new instance and retur it. This differs from the default singleton scope, wherea a single object instance is instantiated once per Spring IOC container.
+
+
+
+
+
+Describe Spring DAO support : 
+The Data Access Object (DAO) support in Spring makes it easy to work with data access technologies like JDBC, Hibernate or JDO in a consistent way. This allows one to switch between the persistence technologies easily. It also allows you to code without worrying about catching exceptions that are specific to each of these technology.
+
+
+Spring Transaction Management :
+	- Programmatic transaction management : In this the, the transaction is managed with the help of programming. It provides you extreme flexibility, but it is very difficult to maintain.
+	- Declarative transactino management : In this, the transaction management is separated from the business code. Only annotations or XML based configurations are used to manage the transactions. 
+
+Describe AOP : 
+AOP is a programming technique which allows programmers to modularize crosscutting concerns or behavior that cuts across the typical divisions of responsibility. Examples of cross cutting concerns can be logging and transaction management. The core of AOP is an aspect. It encapsulates behaviors that can affect multiple classes into reusable modules. 
+Aspect is a modularization of concern which cuts across multiple objects. Transaction management is a good example of cross cutting concerns in J2EE applications. Aspects are implemented using regular classes or regular classes annotated with the @Aspect annotation in Spring Framework. 
+
+JoinPoint : 
+A point during the execution of a program is called JoinPoint, such as the execution of a method or the handling of an exception. In Spring AOP, a joinpoint always represents a method execution.
+
+Advice : An Action taken by an aspect at a particular joinpoint is known as an Advice. Spring AOP uses an advice as an interceptor, maintaining a chain of interceptorr "around" the joinpoint.
+	Types of advices :
+		- Before: These types of advices execute before the joinpoint methods are configured using @Before annotation mark
+		- After returning : These types of advices execute after the jointpoint methods completes executing normally and are configured using @AfterReturning annotation mark.
+		- After throwing : These types of advices execute only if jointpoint method exits by throwing an exception and are configured using @AfterThrowing annotation mark.
+		- After (finally) : These types of advices execute after a jointpoint method, regardless of the method's exit whether normally or exceptional return and are configured using @After annotation mark.
+		- Around : These types of advices execute before and after a jointpoint and are configured using @Around annotation mark.
+
+
+What are cross cutting concerns : 
+The cross-cutting concern is a concern which is applicable throughout the application. This affects the entire application. For example, logging, security and data transfer are the concerns needed in almost every module of an application, thus they are the cross-cutting concerns.

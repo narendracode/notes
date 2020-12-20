@@ -1,0 +1,43 @@
+
+Garbage Collector G1:
+--------------------
+"Remove objects" that are not used anywhere.
+   
+Based on hypothesis :
+1. Most Objects soon become unreachable
+2. References from 'old' objects to 'young' objects only exists in small numbers
+
+- Objects are allocated(eg; new) in the 'heap' of java memory. Static members, class definitions(metadata) etc. are stored in 'method area'(Permgen/Metaspace)
+- Garbase collection is carried out by a deamon thread called "Garbage Collector"
+- We can not force gc to happen
+- When new allocations can not happen due to a full heap you end up with a java.lang.OutOfMemoryError heap space
+
+Steps in Gargbage collection:
+1. Mark : Starts from root node of your application(main), walks the object graph, marks objects that are reachable as live.
+2. Delete/sweep: Delete unreachable objects
+3. Compacting : Compact the memory by moving around the objects and making the allocations contiguous than fragmented.
+
+Generational Collectors :
+Heap is divided into two "Young Generation Space" and "Old generation Space".
+
+whenever a "new" object is created it is first created in Young Generation. If object has lived in memory for long then they are moved to "Old Generation Space".
+
+Young Generation is further divided into "Eden Space" and "survivor space". Eden space is where new objects are created. When GC marks it is live object then it is moved to survivor space. If object further survives for long then they are moved to old generation.
+
+Minor Garbage Collector run in Eden space.
+Major Garbage collector runs across the heap.
+
+Types of Garbage collectors in Java :
+Serial Collector - It runs in single thread, and can be used for basic applications.
+
+Concurrent Collector - A thread that performs GC along with applicaiton execution as the application runs, does not wait for the old generation to be full - Stops the world only during mark/re-mark.
+
+Parallel Collector - Uses mulutiple CPUs to perform GC. Multiple threads doing mark/sweep etc. Does not kick in until heap is full/near-full. "stops-the-world" when it runs.
+
+G1 Garbase Collector(Garbase First) : 
+This GC is officially available in 1.7 u4 onwards. It uses the goodness of concurrent and parallel collector. 
+It divides heap into different regions and during a GC it can collect a sub-set of regions. It dynamically selects a set of region to act as young generation in next gc cycle. Regions with most garbase(unreachable) will be collected first.
+	- Prallelism and concurrency together
+	- Better heap utilization
+	- Low Pauses with fragmentation
+	- More predictable(tunable) GC pauses

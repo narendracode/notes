@@ -1,0 +1,40 @@
+
+Ascii values : 
+A - 65
+Z - 90
+a - 97
+z - 122
+
+Reverse LinkedList : 
+
+ListNode* reverse(ListNode *head){
+    ListNode *current = head;     
+    ListNode *previous = NULL;
+    ListNode *next = NULL; 
+    while (current != NULL) {
+        next = current->next;      
+        current->next = previous;  
+        previous = current;  
+        current = next; 
+    }
+    return previous;
+}
+
+
+Modular arithematic :
+--------------------
+(a+b)%c = ((a%c) + (b%c))%c
+(a*b)%c = ( (a%c) * (b%c))%c
+(a-b)%c = ( (a%c) - (b%c) + c )%c
+(a/b)%c = ( (a%c) * (b^-1 %c)) %c
+
+
+GCD:
+---
+int gcd(int a, int b)
+{
+    if (b == 0)
+        return a;
+    return gcd(b, a % b); 
+     
+}

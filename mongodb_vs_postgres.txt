@@ -1,0 +1,12 @@
+
+The real question here is not mongodb vs postgres, but the best document database vs the best relational database.
+Both databases are awesome.
+If you're looking for a distributed database for modern transactional and analytical applications that are working with rapidly changing, multi-structured data then MongoDB is the way to go.
+
+- If you are at the beginning of a development project and are seeking to figure out your needs and data model by using an agile development process, MongoDB will shine because developers can reshape the data on their own, when they need to. MongoDB enables you to manage data of any structure, not just tabular structures defined in advance.
+
+- If you are supporting an application you know will have to scale in terms of volume of traffic or size of data (or both) and that needs to be distributed across regions for data locality or data sovereignty, MongoDB’s scale-out architecture will meet those needs automatically.
+
+- If you want a multi-cloud database that works the same way in every public cloud, can store customer data in specific geographic regions, and support the latest serverless and mobile development paradigms, MongoDB Atlas is the right choice.
+
+- 

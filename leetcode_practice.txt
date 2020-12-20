@@ -1,0 +1,9 @@
+solved/attempted questions on leetcode:
+--------------------------------------
+
+Medium:
+    LinkedList:
+    https://leetcode.com/problems/add-two-numbers/
+
+Hard : 
+    

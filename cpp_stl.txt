@@ -1,0 +1,585 @@
+
+C++ STL,
+
+pair
+-----
+pair<int, int> p = {1,3};
+cout << p.first << " " << p.second ;
+
+pair<int, pair<int,int> > = {1,{3,4}};
+cout << p.first << " " << p.second.first << " " << p.second.second;
+
+pair<int,int> arr[] = { {1,2}, {2,5}, {5,1} };
+cout << pair[0].first << " " << pair[0].second;
+
+
+vector
+------
+vector<int> v;  // {}
+v.push_back(1);  //inserts element into vector.. in this example 0th index
+v.emplace_back(2) // same as push_back()
+
+
+vector<pair<int,int>> vec;
+vec.push_back({1,2});
+vec.emplace_back({1,2});
+
+
+vector<int> v(5,100); //vector of size 5 with every element as 100
+
+vector<int> v1(5); // {0,0,0,0,0} note : It might happen also that it may take garbage value.. depends on the compiler.
+
+vector<int> v1(5,20); // {20,20,20,20,20}
+vector<int> v2(v1); // {20,20,20,20,20}
+
+
+iterators in vector
+------------------
+// {10,20,30,40}
+vector<int>::iterator it = v.begin();
+
+it++;
+cout << *(it) << " "; //prints 20
+
+it = it+2;
+cout << *(it) << " " << prints 30
+
+vector<int>::iterator it = v.end();
+vector<int>::iterator it = v.rend();
+vector<int>::iterator it = v.rbegin();
+
+using index in vector
+---------------------
+cout << v[0] << " " << v.at(0); //element at 0 index of vector
+cout << v.back(); // last element of vector
+
+print all elements of vector
+----------------------------
+for( vector<int>::iterator it = v.begin(); it != v.end(); it++){
+	cout << *(it) << " ";
+}
+
+for(auto it = v.begin(); it != v.end(); it++){
+	cout << *(it) << endl;
+}
+
+for( auto it : v){
+	cout << it << " ";
+}
+
+
+delete element in vector
+-----------------------
+//{10,20,12,23}
+v.erase(v.begin()); // deletes element at 0th index
+v.erase(v.begin()); // deletes element at 1st index
+
+// { 10, 20, 12, 23, 35 }
+v.erase(v.begin() + 2, v.begin() + 4); // {10,20,35}
+
+//remove last element from vector
+{10,20}
+v.pop_back(); // {10}
+
+//clear entire vector
+v.clear();
+
+find and delete element in vector
+--------------------------------
+v.erase(find(v.begin(), v.end(), 20)); //20 is element to find and delete
+
+
+
+Insert in vector
+-------------------------
+vector<int> v(2,100); // {100,100}
+v.insert(v.begin(),300) // {300,100,100}
+v.insert(v.begin() + 1, 2,10); // {300,10,10,100,100}
+
+Copy elements from one vector to another
+--------------------------------------
+vector<int> v(5,100); // {100,100,100,100,100} 
+vector<int> copy(2,50) // {50,50}
+v.insert(v.begin(), copy.begin(),copy.end()); {50,50,100,100,100,100,100}
+
+{10,20}
+v.size() // 2
+
+
+swap two vectors
+----------------
+//v1 - > {10,20,30}
+//v2 -> {5,2,1}
+
+v1.swap(v2) // v1-> {5,2,1}, v2-> {10,20,30}
+
+
+//Check vector is empty
+v.empty()
+
+
+
+List(LinkedList) 
+---------------
+list<int> ls;
+ls.push_back(2); //{2}
+ls.emplace_back(4); //{2,4}
+
+ls.push_front(5); //{5,2,4}
+ls.push_front(8); // {8,5,2,4}
+
+ //remaining all functions are same as vector above
+ // begin, end, rbegin, rend, clear, insert, size, swap
+
+
+ Dequeue(Dynamic Queue)
+ ---------------------
+ Allows elements to be inserted at front and back
+
+ deque<int> dq;
+ dq.push_back(1); // {1}
+ dq.emplace_back(2); // {1,2}
+ dq.push_front(5);  // {5,1,2}
+ dq.push_front(4); // {4,5,1,2}
+ dq.pop_back(); // {4,5,1}
+ dq.pop_front(); //{5,1}
+
+ dq.back();
+ dq.front();
+
+ // rest functions are same as vector
+ // begin, end, rbegin, rend, clear, insert, size, swap
+
+ Stack
+ -----
+ stack<int> st;
+ st.push(1); // {1}
+ st.push(2); // {2,1}
+ st.push(3); // {3,2,1}
+ st.push(5); // {5,3,2,1}
+ st.emplace(4) // {4,5,3,2,1}
+ 
+ get top element
+ st.top()  // 4
+ st.pop() // removes element from top {5,3,2,1}
+
+ Queue
+ -----
+ queue<int> q;
+ q.push(1); // {1}
+ q.push(2); // {1,2}
+ q.push(5); // {1,2,5}
+ q.emplace(7); // {1,2,5,7}
+
+ q.back() +=5;
+ cout << q.back(); // prints 12
+
+ cout << q.front(); // prints 1
+
+ q.pop(); // {2,5,12}
+
+ q.front() // 12 
+
+Priority Queue
+---------------
+priority_queue<int> pq;
+pq.push(5); //{5}
+pq.push(2); //{5,2}
+pq.push(8); //{8,5,2}
+pq.emplace(10) // {10,8,5,2}
+
+cout << pq.top() // prints 10
+pq.pop() // {8,5,2}
+cout << pq.top() // prints 8
+
+// other functions are same as vector
+
+//Minimum Heap
+priority_queue<int, vector<int>, greater<int>> pq;
+pq.push(5); // {5}
+pq.push(2); // {2,5}
+pq.push(8); // {2,5,8}
+pq.emplace(10) //{2,5,8,10}
+
+cout << pq.top(); // prints 2
+
+Get top k elements from vector using min heap.
+vector<int> getTopK(vector<int> &vec, int k) {
+	vector<int>  res;
+	make_heap(vec.begin(), vec.end());
+	while (k--) {
+		res.push_back(vec.front());
+		pop_heap(vec.begin(), vec.end());
+		vec.pop_back();
+	}
+	return res;
+}
+
+
+
+
+//compare in priority queue
+class Meeting {
+public :
+	int start = 0;
+	int end = 0;
+
+	Meeting(int start, int end) {
+		this->start = start;
+		this->end = end;
+	}
+};
+
+priority_queue<Meeting, vector<Meeting>, endCompare> minHeap;
+struct endCompare {
+	bool operator()(const Meeting &x, const Meeting &y) { return x.end > y.end; }
+};
+
+//another example
+class ProfitCapital{
+  public :
+    int profit = 0;
+    int capital = 0;
+    ProfitCapital(int profit,int capital){
+      this->profit = profit;
+      this->capital = capital;
+    }
+};
+
+struct endMaxProfitCompare {
+  bool operator()(const ProfitCapital &x, const ProfitCapital &y) {
+      if(x.profit < y.profit){
+        return true;
+      }else if(x.profit > y.profit){
+        return false;
+      } else {
+        return (x.capital >= y.capital);
+      }
+    }
+};
+struct endMinCapitalCompare {
+  bool operator()(const ProfitCapital &x, const ProfitCapital &y) { 
+      if(x.capital  > y.capital){
+        return true;
+      }else if(x.capital < y.capital){
+        return false;
+      } else {
+        return x.profit <= y.profit;
+      }
+    };
+};
+
+priority_queue<ProfitCapital, vector<ProfitCapital>, endMaxProfitCompare> maxProfitHeap;
+priority_queue<ProfitCapital, vector<ProfitCapital>, endMinCapitalCompare> minCapitalHeap;
+      
+
+Set(Ordered set)
+----------------
+Stores unique elements in ascending order by default
+
+set<int> st;
+st.insert(1); // {1}
+st.emplace(2); // {1,2}
+st.insert(2); // {1,2}
+st.insert(4); // {1,2,4}
+st.insert(3); // {1,2,3,4}
+
+All other functions work same as vector
+
+auto it = st.find(3); //returns iterator pointing to 3
+
+auto it = st.find(6); //returns iterator pointing to end;
+
+st.erase(3); // {1,2,4} // takes logn time
+
+int count = st.count(1); // 1
+
+auto it = st.find(3);
+st.erase(it); // it takes constant time
+
+//{1,2,3,4,5}
+auto it1 = st.find(2);
+auto it2 = st.find(4);
+
+st.erase(it1,it2); // after erase {1,4,5}
+
+//finding lower_boud
+auto it = st.lower_bound(2);
+
+//finding upper bound
+auto it = st.upper_bound(3);
+
+Multiset(allows storing duplicate element )
+--------------------------------------------
+multiset<int> ms;
+ms.insert(1); {1}
+ms.insert(1); {1,1}
+ms.insert(1); {1,1,1}
+
+ms.erase(1); // all 1 are erased {}
+int count = ms.count(1) // 0
+
+//erase only single
+ms.erase(ms.find(1));
+
+rest all functions are same as set
+
+
+Unordered Set
+------------
+unordered_set<int> set;
+//lower_bound and upper_bound function doe not work ..
+//Rest all functions are same as set
+//find is constant time
+
+Map
+----
+map<int,int> mpp;
+map<int, pair<int,int>> mpp;
+map< pair<int,int>, int> mpp;
+
+insert in map
+map<int,int> mpp;
+mpp[1] = 2;
+mpp.emplace({3,1});
+mpp.insert({2,4}); //  { {1,2}, {2,4}, {3,1} }
+
+for(auto it : mpp){
+	cout << it.first << " " << it.second << endl;
+}  
+
+
+cout << mpp[1]; // prints 2
+cout << mpp[5]; // prints 0 since it does not exist
+
+auto it = mpp.find(3); // points to the position where 3 is found 
+auto it = mpp.find(5); // points to the end of map since not found
+
+//lower bound and upper bound works same as other 
+auto it = mpp.lower_bound(2);
+auto it = mpp.upper_bound(3);
+
+erase in map
+mpp.erase (<key>);
+
+
+map<int, vector<int>> mp;
+if map is like above then use (mp.find(1) == mp.end()) to verify if element exists in map or not.
+
+Multimap
+--------
+//Same as map but allows to store multiple keys of same value
+
+// mpp[key] cannot be used here
+
+
+STL algorithms
+-------------
+sort(a,a+n) // a is begin iterator, n is size of container
+above syntax sorts entire container
+
+sort(a+2, a+4)// sorts element 2,3
+
+sort(a,a+n, greater<int>()); //sorts in descending order
+
+
+pair<int,int> a[] = { {1,2}, {2,1}, {4,1} }; 
+//sort it according to second element
+//if second element is same then sort it according to first element but in descending
+
+bool comp(pair<int,int> p1, pair<int,int>p2){
+	if(p1.second<p2.second){
+		return true;
+	}else if(p1.second>p2.second){
+		return false;
+	}else{
+		//p1.second == p2.second
+		if(p1.first > p2.first)
+			return true;
+		else
+			return false;
+	}
+}
+
+sort(a,a+n,comp);
+
+sort vector :
+sort(vec.begin(), vec.end(),comp);
+
+
+sort vector of vector 
+-------------------
+vector<vector<int>> intervals;
+struct endCompare {
+    bool operator()(const vector<int> &p2, const vector<int> &p1){
+          if(p1[0] > p2[0]){
+              return true;
+          }else if(p1[0] < p2[0]) {
+              return false;
+          }else{
+              return p1[1] > p2[1];
+          }
+    }
+};
+
+sort(intervals.begin(), intervals.end(),endCompare());
+
+
+
+Count set bits in binary representation of a number
+---------------------------------------------------
+int num = 7
+int cnt = __builtin_popcount();
+
+//for long 
+long long num = 16575344234;
+int cnt = __builtin_popcountll();
+
+string s = "123";
+
+do{
+	cout << s << endl;
+}while(next_permutation(s.begin(), s.end()));
+
+// 123
+//132
+// 213
+//312
+//321
+
+
+
+Maximum element in given range
+-----------------------------
+int maxi = *max_element(a,a+n);
+
+Check if X exists in the sorted array or not?
+--------------------------------------------
+A[] = {1,4,5,8,9}
+
+bool res = binary_search(a,a+n,3); //returns false because 3 is not present in array
+
+bool res = binary_search(a,a+n,4); //returns true
+
+
+
+Lower bound
+-----------
+if element is present in array then it returns the index of that element else it returns immediate next. If Searched value is greater than or equal to last element then it returns it.end();
+
+a[] = {1,4,5,6,9,9}
+
+int ind = lower_bound(a,a+n,4) - a;   // returns 0 -> index of 1;
+int ind = lower_bound(a,a+n,7) - a;   // return 4 -> index of 9(first occurence)
+int ind = lower_bound(a,a+n,10) - a;  // returns 6 -> index of end + 1
+
+Upper Bound
+-----------
+
+It always returns the index of next higher element. If search value is the last element then it will return the last index + 1;
+a[] = {1,4,5,6,9,9}
+int ind = upper_bound(a,a+n,4) - a; //2 -> index of 4 is 1 , hence 1+1 = 2
+
+int ind = upper_bound(a,a+n,7) - a;// 4 -> 7 is not present, next element bigger than 7 is 9 whose index is 4
+
+int ind = upper_bound(a,a+n,10) - a; // 6 -> 10 not found so return index of it.end()
+
+
+for vector syntax is :
+int ind = upper_bound(a.begin(), a.end(), x) - a.begin();
+
+
+char to int 
+----------
+charvalue - '0'
+eg;
+int value = a[ind] - '0'; //where a is string and ind is index
+
+string to int
+---------------
+int i = std::stoi(s);
+
+int to string 
+-------------
+string str = to_string(i);
+
+
+check if string is number
+------------------------
+bool isNumber(string s) {
+	for (int i = 0; i < s.length(); i++)
+		if (isdigit(s[i]) == false)
+			return false;
+
+	return true;
+}
+
+
+
+string check if it contains another search string
+-------------------------------------------------
+string check = "1+2"
+check.find("+") == string::npos //true
+check.find("-") == string::npos //false
+
+
+Struct
+------
+
+define a struct : 
+struct Employee{
+	short id;
+	int age;
+	double wage;
+}
+
+Using struct  : 
+Employee joe; // Defines a variable of type Emplyee named "joe". 
+
+Accessing struct mumbers : 
+Employee joe;     // create an Employee struct for Joe
+joe.id = 14       // assign a value to member id within struct joe
+joe.age = 10      // assign a value to member age within struct joe
+joe.wage = 25.12  // assign a value to member wage within struct joe
+
+As with normal variables, struct mumbers are not initialized, we must initializd  them manually.
+
+Initializing structs : 
+Initializing structs by assigning values member by member is a little cumbersome, so C++ supports a faster way to initialize structs using an initializer list. This allows you to initialize some or all the members of a struct at declaration time.
+Employee joe{ 1, 32, 60000.0 }; // joe.id = 1, joe.age = 32, joe.wage = 60000.0
+
+Structs and functions : 
+#include <iostream>
+ 
+struct Employee
+{
+    short id;
+    int age;
+    double wage;
+};
+ 
+void printInformation(Employee employee)
+{
+    std::cout << "ID:   " << employee.id << '\n';
+    std::cout << "Age:  " << employee.age << '\n';
+    std::cout << "Wage: " << employee.wage << '\n';
+}
+ 
+int main()
+{
+    Employee joe { 14, 32, 24.15 };
+    Employee frank { 15, 28, 18.27 };
+ 
+    // Print Joe's information
+    printInformation(joe);
+ 
+    std::cout << '\n';
+ 
+    // Print Frank's information
+    printInformation(frank);
+ 
+    return 0;
+}
+
+
+

@@ -1,0 +1,249 @@
+Design patterns differ by their complexity, level of detail and scale of applicability to the entire system being designed. I like the analogy to road construction: you can make an intersection safer by either installing some traffic lights or building an entire multi-level interchange with underground passages for pedestrians.
+
+The most basic and low-level patterns are often called idioms. They usually apply only to a single programming language.
+
+The most universal and high-level patterns are architectural patterns. Developers can implement these patterns in virtually any language. Unlike other patterns, they can be used to design the architecture of an entire application.
+
+Categores of Patterns :
+-----------------------
+1. Creational Patterns : provide object creation mechanisms that increase flexibility and reuse of existing code.
+    - Factory Method
+    - Abstract Factory
+    - Builder
+    - Prototype
+    - Singleton
+2. Structural patterns : Explain how to assemble objects and classes into larger structures, while keeping the structures flexible and efficient.
+    - Adapter
+    - Bridge
+    - Composite
+    - Decorator
+    - Facade
+    - Proxy
+    - Flywieght
+
+3. Behavioral Patterns : Take care of effective communication and the assignment of responsibilities between objects.
+    - Chain of Responsibility
+    - Command
+    - Memento
+    - Observer
+    - Template Method
+    - Visitor
+    - Iterator
+    - Mediator
+    - State
+    - Strategy
+
+
+Factory Method Design Pattern : 
+------------------------------
+Factory Method is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
+
+Advantages :
+- Avoid tight coupling between creator and concrete products.
+- Singtel Responsibility Principle :  You can move the product creation code into one place in the program, making the code easier to support.
+- Open/Closed Principle. You can introduce new types of products into the progam without breaking existing client code.
+
+
+Abstract Factory : 
+-----------------
+Abstract Factory is a creational design pattern that lets you produce families of related objects without specifying their concrete classes.
+
+How to implement : 
+1. Map out a matrix of distinct product types versus variants of these products.
+2. Declare abstract product interfaces for all product types. Then make all concrete product classes implement these interfaces.
+3. Declare the abstract factory interface with a set of creation methods for all abstract products.
+4. Implement a set of concrete factory classes, one for each product variant.
+5. Create factory initialization code somewhere in the app. It should instantiate one of the concrete factory classes, depending on the application configuration or the current environment. Pass this factory object to all classes that construct products.
+6. Scan through the code and find all direct calls to product constructors. Replace them with calls to the appropriate creation method on the factory object.
+
+Advantages :
+- You can be sure that the products you’re getting from a factory are compatible with each other.
+- You avoid tight coupling between concrete products and client code.
+- Single Responsibility Principle. You can extract the product creation code into one place, making the code easier to support.
+- Open/Closed Principle. You can introduce new variants of products without breaking existing client code.
+
+Builder :
+---------
+Builder is a creational design pattern that lets you construct complex objects step by step. The pattern allows you to produce different types and representations of an object using the same construction code.
+
+How to implement : 
+1. Make sure that you can clearly define the common construction steps for building all available product representations. Otherwise, you won’t be able to proceed with implementing the pattern.
+2. Declare these steps in the base builder interface.
+3. Create a concrete builder class for each of the product representations and implement their construction steps.
+Don’t forget about implementing a method for fetching the result of the construction. The reason why this method can’t be declared inside the builder interface is that various builders may construct products that don’t have a common interface. Therefore, you don’t know what would be the return type for such a method. However, if you’re dealing with products from a single hierarchy, the fetching method can be safely added to the base interface.
+4. Think about creating a director class. It may encapsulate various ways to construct a product using the same builder object.
+5. The client code creates both the builder and the director objects. Before construction starts, the client must pass a builder object to the director. Usually, the client does this only once, via parameters of the director’s constructor. The director uses the builder object in all further construction. There’s an alternative approach, where the builder is passed directly to the construction method of the director.
+6. The construction result can be obtained directly from the director only if all products follow the same interface. Otherwise, the client should fetch the result from the builder.
+
+Advantages :
+-  You can construct objects step-by-step, defer construction steps or run steps recursively.
+-  You can reuse the same construction code when building various representations of products.
+-  Single Responsibility Principle. You can isolate complex construction code from the business logic of the product.
+
+Prototype : 
+-----------
+Prototype is a creational design pattern that lets you copy existing objects without making your code dependent on their classes.
+
+The Prototype pattern delegates the cloning process to the actual objects that are being cloned. The pattern declares a common interface for all objects that support cloning. This interface lets you clone an object without coupling your code to the class of that object. Usually, such an interface contains just a single clone method.
+
+The implementation of the clone method is very similar in all classes. The method creates an object of the current class and carries over all of the field values of the old object into the new one. You can even copy private fields because most programming languages let objects access private fields of other objects that belong to the same class.
+
+Advantages : 
+1. You can clone objects without coupling to their concrete classes.
+2. You can get rid of repeated initialization code in favor of cloning pre-built prototypes.
+3. You can produce complex objects more conveniently.
+4. You get an alternative to inheritance when dealing with configuration presets for complex objects.
+
+Disadvantages :
+1. Cloning complex objects that have circular references might be very tricky.
+
+Singleton :
+-----------
+Singleton is a creational design pattern that lets you ensure that a class has only one instance, while providing a global access point to this instance.
+
+Advantages :
+1.  You can be sure that a class has only a single instance.
+2. You gain a global access point to that instance.
+3. The singleton object is initialized only when it’s requested for the first time.
+
+Disadvantages :
+1.  Violates the Single Responsibility Principle. The pattern solves two problems at the time.
+2. The Singleton pattern can mask bad design, for instance, when the components of the program know too much about each other.
+3. The pattern requires special treatment in a multithreaded environment so that multiple threads won’t create a singleton object several times.
+4. It may be difficult to unit test the client code of the Singleton because many test frameworks rely on inheritance when producing mock objects. Since the constructor of the singleton class is private and overriding static methods is impossible in most languages, you will need to think of a creative way to mock the singleton. Or just don’t write the tests. Or don’t use the Singleton pattern.
+
+Adapter :
+---------
+Adapter is a structural design pattern that allows objects with incompatible interfaces to collaborate.
+You can create an adapter. This is a special object that converts the interface of one object so that another object can understand it.
+
+An adapter wraps one of the objects to hide the complexity of conversion happening behind the scenes. The wrapped object isn’t even aware of the adapter. For example, you can wrap an object that operates in meters and kilometers with an adapter that converts all of the data to imperial units such as feet and miles.
+
+
+Bridge :
+--------
+Bridge is a structural design pattern that lets you split a large class or a set of closely related classes into two separate hierarchies—abstraction and implementation—which can be developed independently of each other.
+
+How to implement?
+1. Identify the orthogonal dimensions in your classes. These independent concepts could be: abstraction/platform, domain/infrastructure, front-end/back-end, or interface/implementation.
+
+2. See what operations the client needs and define them in the base abstraction class.
+
+3. Determine the operations available on all platforms. Declare the ones that the abstraction needs in the general implementation interface.
+
+4. For all platforms in your domain create concrete implementation classes, but make sure they all follow the implementation interface.
+
+5. Inside the abstraction class, add a reference field for the implementation type. The abstraction delegates most of the work to the implementation object that’s referenced in that field.
+
+6. If you have several variants of high-level logic, create refined abstractions for each variant by extending the base abstraction class.
+
+7. The client code should pass an implementation object to the abstraction’s constructor to associate one with the other. After that, the client can forget about the implementation and work only with the abstraction object.
+
+Advantages :
+- You can create platform-independent classes and apps.
+- The client code works with high-level abstractions. It isn’t exposed to the platform details
+- Open/Closed Principle. You can introduce new abstractions and implementations independently from each other.
+- Single Responsibility Principle. You can focus on high-level logic in the abstraction and on platform details in the implementation.
+
+Composite Design Pattern : 
+-------------------------
+Composite is a structural design pattern that lets you compose objects into tree structures and then work with these structures as if they were individual objects. 
+
+Composite is a structural design pattern that allows composing objects into a tree-like structure and work with the it as if it was a singular object.
+
+Advantages : 
+- You can work with complex tree structures more conveniently: use polymorphism and recursion to your advantage.
+- Open/Closed Principle. You can introduce new element types into the app without breaking the existing code, which now works with the object tree.
+
+
+Decorator Design Pattern : 
+--------------------------
+Decorator is a structural design pattern that lets you attach new behaviors to objects by placing these objects inside special wrapper objects that contain the behaviors.
+
+How to implement :
+1. Make sure your business domain can be represented as a primary component with multiple optional layers over it.
+2. Figure out what methods are common to both the primary component and the optional layers. Create a component interface and declare those methods there.
+3. Create a concrete component class and define the base behavior in it.
+4. Create a base decorator class. It should have a field for storing a reference to a wrapped object. The field should be declared with the component interface type to allow linking to concrete components as well as decorators. The base decorator must delegate all work to the wrapped object.
+5. Make sure all classes implement the component interface.
+6. Create concrete decorators by extending them from the base decorator. A concrete decorator must execute its behavior before or after the call to the parent method (which always delegates to the wrapped object).
+7. The client code must be responsible for creating decorators and composing them in the way the client needs.
+
+Advantages :
+1. You can extend an object’s behavior without making a new subclass.
+2. You can add or remove responsibilities from an object at runtime.
+3. You can combine several behaviors by wrapping an object into multiple decorators.
+4. Single Responsibility Principle. You can divide a monolithic class that implements many possible variants of behavior into several smaller classes.
+
+Facade Design Pattern :
+-----------------------
+Facade is a structural design pattern that provides a simplified interface to a library, a framework, or any other complex set of classes.
+
+How to implement :
+1. Check whether it’s possible to provide a simpler interface than what an existing subsystem already provides. You’re on the right track if this interface makes the client code independent from many of the subsystem’s classes.
+2. Declare and implement this interface in a new facade class. The facade should redirect the calls from the client code to appropriate objects of the subsystem. The facade should be responsible for initializing the subsystem and managing its further life cycle unless the client code already does this.
+3. To get the full benefit from the pattern, make all the client code communicate with the subsystem only via the facade. Now the client code is protected from any changes in the subsystem code. For example, when a subsystem gets upgraded to a new version, you will only need to modify the code in the facade.
+4. If the facade becomes too big, consider extracting part of its behavior to a new, refined facade class.
+5. You can isolate your code from the complexity of a subsystem.
+
+Flyweight Deisgn Pattern :
+Flyweight is a structural design pattern that lets you fit more objects into the available amount of RAM by sharing common parts of state between multiple objects instead of keeping all of the data in each object.
+
+Proxy Design Pattern :
+--------------------
+Proxy is a structural design pattern that lets you provide a substitute or placeholder for another object. A proxy controls access to the original object, allowing you to perform something either before or after the request gets through to the original object.
+
+Advantages : 
+1. You can control the service object without clients knowing about it.
+2. You can manage the lifecycle of the service object when clients don’t care about it.
+3. The proxy works even if the service object isn’t ready or is not available.
+4. Open/Closed Principle. You can introduce new proxies without changing the service or clients.
+
+
+Chain Of Responsibility Design Pattern :
+----------------------------------------
+Chain of Responsibility is a behavioral design pattern that lets you pass requests along a chain of handlers. Upon receiving a request, each handler decides either to process the request or to pass it to the next handler in the chain.
+
+
+Command Design Pattern :
+-----------------------
+Command is a behavioral design pattern that turns a request into a stand-alone object that contains all information about the request. This transformation lets you parameterize methods with different requests, delay or queue a request’s execution, and support undoable operations.
+
+Iterator Design Pattern :
+-------------------------
+Iterator is a behavioral design pattern that lets you traverse elements of a collection without exposing its underlying representation (list, stack, tree, etc.).
+
+Mediator Design Pattern :
+-------------------------
+Mediator is a behavioral design pattern that lets you reduce chaotic dependencies between objects. The pattern restricts direct communications between the objects and forces them to collaborate only via a mediator object.
+
+Momento Design Pattern :
+------------------
+Memento is a behavioral design pattern that lets you save and restore the previous state of an object without revealing the details of its implementation.
+
+Observer Design Pattern :
+-------------------------
+Observer is a behavioral design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they’re observing.
+
+eg; Listeners
+
+State Design Pattern :
+----------------------
+State is a behavioral design pattern that lets an object alter its behavior when its internal state changes. It appears as if the object changed its class.
+
+Strategy Design Pattern :
+------------------------
+Strategy is a behavioral design pattern that lets you define a family of algorithms, put each of them into a separate class, and make their objects interchangeable.
+
+You can swap algorithms used inside an object at runtime.
+ You can isolate the implementation details of an algorithm from the code that uses it.
+ You can replace inheritance with composition.
+ Open/Closed Principle. You can introduce new strategies without having to change the context.
+
+Template Design Pattern :
+-------------------------
+ Template Method is a behavioral design pattern that defines the skeleton of an algorithm in the superclass but lets subclasses override specific steps of the algorithm without changing its structure.
+
+ Visitor Design Pattern :
+ -----------------------
+ Visitor is a behavioral design pattern that lets you separate algorithms from the objects on which they operate.

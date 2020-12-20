@@ -1,0 +1,22 @@
+
+
+HashTable
+HashMap
+Collections.synchronizedMap
+ConcurrentHashMap
+
+HashMap :
+Stores key-value pairs, and is best suitable for single threaded applications as this is not synchronized and hence not thread safe.
+In order to wrap it's method with synchronized block we can use Collections.synchronizedMap. In short Collections.synchronizedMap provides synchronization wrapper on it's method.
+
+HashTable : It is a synchronized implementation of Map. This is same as Collections.Synchronized as they both do provide the same degree of synchronization and the internal implementation is almost the same.
+HashTable uses method level synchronization.
+
+The difference lies in the mutex. In the source code, the class of SynchronizedMap has two constructors, one which takes only Map as an arguement and another which takes a Map and an object(mutex) as an arguement. Though the developer is allowed to pass another object of the mutex as a second arguement by which the lock on the Map methods would be only on that Object and hece less restrictive than HashTable.
+Hence HashTable uses method level lock whereas Collections.SynchronizedMap provides flexibility to developer lock on provided mutex with Synchronized block.
+
+ConcurrentHashMap : It provides best of synchronization among all the different Map. It is a thread safe collection and intended to be used as primary implementation especially for multi-threaded and concurrent environments. Thraed-safety is achieved by dividing the whole Map into different partitions based upon concurrency level and only locking particular portion instead of whole Map, as done in HashTables/SynchronizedMap.
+
+As opposed to the HashTables where every read/write operation needs to acquire the locks, there is no need to locking at the object level in ConcurrentHashMaps and is much finer granular at a hashmap bucket level.
+
+In never locks the whole Map, instead it divides the map into segments and locking is done on these segements. ConcurrentHashMap is seperated into different regions(default-16) and locks are applied to them. When setting data in a particular segment, the lock for that segmenet is obtained. This means that two updates can still simultaneously execute safely if they reach affect separete buckets, thus minimizing lock contention and so maximizing performance.

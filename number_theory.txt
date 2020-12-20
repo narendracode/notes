@@ -1,0 +1,427 @@
+
+Modular Arithematic
+-------------------
+properties : 
+1. (a+b)%c = (  ( a % c ) + ( b % c)  ) % c
+2. (a*b)%c = (  ( a % c ) * ( b % c)  ) % c
+3. (a-b)%c = (  ( a % c ) - ( b % c) + c ) % c
+4. (a/b)%c = (  ( a % c ) * ( pow(b,-1) % c)) % c
+
+Note: In the last property, is the multiplicative modulo inverse of b and c.
+
+If a = 5, b = 3, c = 2, then : 
+(5 + 3 ) % 2  = 0
+(5*3) % 2 = 1
+
+Modular Exponentiation
+----------------------
+Module exponentiation is a mathematical operation that is expressed as pow(x,n) and computed as x.x.x.x.....x(n times)
+
+linear way to calculate pow(x,n)
+
+int recursivePower(x,n){
+	if(x == 0)
+		return 1;
+	else 
+		return x * recursivePower(x,n-1);
+}
+Time complexity of this solution is O(n)
+
+Optimization:
+When calculating pow(x,n) it relies on value of n whether n is even or odd.
+If n is even then pow( pow(x,2), (n/2) ) 
+If n is odd then x*pow(x,n-1);
+
+int modular_expo(int x, int n) {
+	if (n == 0) {
+		return 1;
+	}
+	if (n % 2 == 0) {
+		return modular_expo( (x * x), (n / 2) );
+	} else {
+		return x * modular_expo(x, (n - 1) );
+	}
+}
+
+Above code has complexity O(n)
+
+Greatest Common Divisor(GCD)
+---------------------------
+The GCD of two numbers is the largest positive number that divides all the numbers that are considered. For example GCD of 10 and 6 is 2.
+
+Euclid algorithm to find GCD :
+GCD(A,B) = GCD(B, A%B). It will recurse until A%B = 0
+int find_gcd(int a, int b) {
+	if (b == 0)
+		return a;
+	else
+		return find_gcd(b, (a % b));
+}
+Time complexity O(log(max(a,b)) )
+
+Extended Euclidean algorithm
+----------------------------
+This algorithm is an extended form of Euclid’s algorithm. GCD(A,B) has a special property so that it can always be represented in the form of an equation i.e.  Ax + By = GCD(A,B)
+
+Implementation :
+#include < iostream >
+
+
+int extendedEuclid(ll a, ll b, ll &x, ll &y)
+{
+	if (a == 0)
+	{
+		x = 0;
+		y = 1;
+		return b;
+	}
+	ll x1, y1;
+	ll d = extendedEuclid(b % a, a, x1, y1);
+	x = y1 - (b / a) * x1;
+	y = x1;
+	return d;
+}
+
+int main( ) {
+	int d, x, y;
+	long long g = extendedEuclid(16, 10);
+	cout << ”The GCD of 16 and 10 is ” << d << endl;
+	cout << ”Coefficients x and y are ”<< x <<  “and  “ << y << endl;
+	return 0;   
+}
+
+Output : The GCD of 16 and 10 is 2.
+Coefficients x and y are 2 and -3.
+
+ref : https://www.hackerearth.com/practice/math/number-theory/basic-number-theory-1/tutorial/
+
+Finding total number of solution of Linear Diaphantine equation : 
+x0 = x * (d / g);
+y0 = y * (d / g);
+
+ll l = ceil((-double(x0 * g)) / double(b));
+ll r = floor(double(y0 * g) / double(a));
+ll total_solutions = max((r - l + 1), 0ll);
+
+
+Modular Multiplicative Inverse
+------------------------------
+If A.B = 1 then you're required to find B such that it satisfies the equation. The value of B is 1/A or pow(A,-1). Here B is called multiplicative inverse.
+
+If you have two numbers A, M and you're required to find B such that it satisfies the following equation : 
+(A,B) % M = 1
+Here B is the Modular Multiplicative inverse of A under module M.
+
+Formally if you have two integers A and M, B is said to be modular multiplicative inverse of A under modulo M if it satisfies the following equation : 
+A.B = 1(modM) where B is in the range [1,M-1]
+
+
+Existence of modular multiplicative inverse :
+An inverse exists only when A and M are co-prime ie; GCD(A,M) = 1
+
+int d,x,y;
+void extendedEuclid(int A, int B) {
+    if(B == 0) {
+        d = A;
+        x = 1;
+        y = 0;
+    }
+    else {
+        extendedEuclid(B, A%B);
+        int temp = x;
+        x = y;
+        y = temp - (A/B)*y;
+    }
+}
+
+int modInverse(int A, int M){
+    extendedEuclid(A,M);
+    return (x%M+M)%M;    //x may be negative
+}
+
+
+Number base conversion
+---------------------
+Converting from base b to base 10
+Converting from base 10 to base b
+
+https://www.youtube.com/watch?v=ht-xfKPPStQ
+https://artofproblemsolving.com/wiki/index.php/Base_numbers/Conversion
+
+
+Check Prime
+----------
+If you have two positive numbers N and D, such that N is divisible by D and D is less than the square root of N.
+- (N/D) must be greater than the square root of N
+- N is also divisible by (N/D). If there is a divisor of N that is less than the square root of N, then there will be a divisor of N that is greater than square root of N. You will have to traverse till the square root of N.
+
+Note: You are generating all the divisors of and if the count of divisors is greater than 2, then the number is composite. 
+
+For example, if N = 50, sqrt(N)=7(floor value). You will iterate from 1 to 7 and count the number of divisors of N. The divisors of N are 1,50; 2,25; 5,10.  You have 6 divisors of 50, and therefore it is not prime.
+
+void checkprime(int N) {
+        int count = 0;
+        for( int i = 1;i * i <=N;++i ) {
+             if( N % i == 0) {
+                 if( i * i == N )
+                         count++;
+                 else       // i < sqrt(N) and (N / i) > sqrt(N)
+                         count += 2;
+              }
+        }
+        if(count == 2)
+            cout << N << “ is a prime number.” << endl;
+        else
+            cout << N << “ is not a prime number.” << endl;
+    }
+
+
+Sieve of Eratosthenes
+---------------------
+You can use the Sieve of Eratosthenes to find all the prime numbers that are less than or equal to a given number N or to find out whether a number is a prime number.
+
+The basic idea behind the Sieve of Eratosthenes is that at each iteration one prime number is picked up and all its multiples are eliminated. After the elimination process is complete, all the unmarked numbers that remain are prime.
+
+void sieve(int N) {
+    bool isPrime[N+1];
+    for(int i = 0; i <= N;++i) {
+        isPrime[i] = true;
+    }
+    isPrime[0] = false;
+    isPrime[1] = false;
+    for(int i = 2; i * i <= N; ++i) {
+         if(isPrime[i] == true) {                    //Mark all the multiples of i as composite numbers
+             for(int j = i * i; j <= N ;j += i)
+                 isPrime[j] = false;
+        }
+    }
+}
+
+Time complexity : O(NloglogN)
+
+Modification of Sieve of Eratosthenes for fast factorization :
+------------------------------------------------------------
+Factorization in sqrt(N)
+
+vector<int> factorize(int n) {
+    vector<int> res;
+    for (int i = 2; i * i <= n; ++i) { // Note #1 : Here At every step, you must look for the prime number of the least value, which divides the current N. This is the main idea of this modification. 
+        while (n % i == 0) {
+            res.push_back(i);
+            n /= i;
+        }
+    }
+    if (n != 1) {
+        res.push_back(n);
+    }
+    return res;
+}
+
+Let us improve Note #1, which will give up this in O(1) time.
+const int n = 1e6;
+int minPrime[n+1];
+for(int i = 2; i*i <=n ;++i){
+	if(minPrime[i] == 0){ // If i is prime
+		for(int j = i * i;j<=n;j+=i){
+			if(minPrime[j] == 0){
+				minPrime[j] = i;
+			}
+		}
+	}
+}
+
+for(int i = 2;i<=n;++i){
+	if(minPrime[i] == 0)
+		minPrime[i] = i;
+}
+
+Now let's use this factorize N in O(longN) time.
+
+vector<int> factorize(int n){
+	vector<int> res;
+	while(n != 1){
+		res.push_back(minPrime[n]);
+		n /= minPrime[n];
+	}
+
+	return res;
+}
+
+Note : Above appraoch is useful when you need to factorize not very large numbers. It is not necessary to build a modified Sieve for every problem in which factorization is required. Moreover, you cannot build it for large number N like 10^9 or 10^12. Therefore for such large numbers, it is recommended that you factorize in O(sqrt(N)) instead.
+
+Also,
+If the factorization of N is (p1 ^q1) * (p2^q2) * (p3^q3)*.......(pk^qk) where p1,p2,p3....pk are prime factors of N and q1,q2,q3,q4,...qk are the powers of the respective prime factors, then N has (q1+1)*(q2+1)*(q3+1)*...*(qk+1) distinct divisors.
+
+
+
+Sieve of Eratosthenes on the segment : 
+--------------------------------------
+Sometimes you need to find all the primes that are in the range [L...R] and not in [1..N], where R is large number.
+Conditions: 
+You are allowed to create an array of integers with size (R - L + 1)
+
+bool isPrime[r - l + 1]; //filled by true
+for (long long i = 2; i * i <= r; ++i) {
+	for (long long j = max(i * i, (l + (i - 1)) / i  * i); j <= r; j += i) {
+		isPrime[j - l] = false;
+	}
+}
+
+for (long long i = max(l, 2); i <= r; ++i) {
+	if (isPrime[i - l]) {
+		//then i is prime
+	}
+}
+
+Fermat Primality Testing : 
+--------------------------
+This method is used to check if a given number 'n' is probable prime or not. Note on the "probleble", that means it may or may not be prime. So we have to test the equation with multiple inputs.
+
+Fermat's little theorem states that, If n is prime number, then for every a, 1 < a < n-1,
+
+a^(n-1) = 1 mod n 
+or 
+a^(n-1) % n = 1
+
+example : 
+1. to find 5 is prime, hence 
+	(2^4) % 5 = 1
+	(3^4) % 5 = 1
+	(4^4) % 5 = 1
+
+	hence  all return 1 hence it's true that 5 is prime
+2. to find if 7 is prime, hence
+	(2^6) % 7 = 1
+	(3^6) % 7 = 1
+	(4^6) % 7 = 1
+	(6^6) % 7 = 1
+ 	
+ 	all return 1 hence it is true that 7 is prime
+
+ Algorithm : 
+// Higher value of k indicates probability of correct
+// results for composite inputs become higher. For prime
+// inputs, result is always correct
+1)  Repeat following k times:
+      a) Pick a randomly in the range [2, n - 2]
+      b) If gcd(a, n) ≠ 1, then return false
+      c) If an-1 &nequiv; 1 (mod n), then return false
+2) Return true [probably prime].
+
+
+// If n is prime, then always returns true, If n is 
+// composite than returns false with high probability 
+// Higher value of k increases probability of correct 
+// result. 
+bool isPrime(unsigned int n, int k) 
+{ 
+   // Corner cases 
+   if (n <= 1 || n == 4)  return false; 
+   if (n <= 3) return true; 
+  
+   // Try k times 
+   while (k>0) 
+   { 
+       // Pick a random number in [2..n-2]         
+       // Above corner cases make sure that n > 4 
+       int a = 2 + rand()%(n-4);   
+  
+       // Checking if a and n are co-prime 
+       if (gcd(n, a) != 1) 
+          return false; 
+   
+       // Fermat's little theorem 
+       if (pow(a, n-1, n) != 1) 
+          return false; 
+  
+       k--; 
+    } 
+  
+    return true; 
+} 
+
+int gcd(int a, int b) 
+{ 
+    if(a < b) 
+        return gcd(b, a); 
+    else if(a%b == 0) 
+        return b; 
+    else return gcd(b, a%b);   
+} 
+
+
+Euler Totient Function : 
+-----------------------
+Euler's Totient function is a function that is related to getting the number of numbers that are coprime to a certain number that are less than or equal to it. In short, for a certain number X we need to find the count of all numbers Y where gcd(X,Y) = 1 and 1<=Y<=X
+
+According to Euler's product formula, the value of the Totient function is below the product over all prime factors of a number. This formula simply states that the value of the Totient function is the product after multiplying the number N by the product of (1- (1/p)) for each prime factor of N
+
+
+Algorithm Steps : 
+- Generate a list of primes
+- While dealing with a certain N, check and store all the primes that perfectly divide N
+- No, it is just needed to us these primes and above formula to get the result
+
+implementation :
+
+set<> primes;
+static void mark(int num,int max,int[] arr)
+{
+    int i=2,elem;
+    while((elem=(num*i))<=max)
+    {
+        arr[elem-1]=1;
+        i++;
+    }
+}
+
+GeneratePrimes(){
+    int arr[max_prime];
+    for(int i=1;i<arr.length;i++)   
+    {
+        if(arr[i]==0)
+        {
+            list.add(i+1);
+            mark(i+1,arr.length-1,arr);
+        }
+    }
+}
+
+main(){
+    GeneratePrimes();
+    int N=nextInt();
+    int ans=N;
+    for(int k:set)
+    {
+        if(N%k==0)
+        {
+            ans*=(1-1/k);
+        }
+    }
+    print(ans);
+}
+
+
+There are a few subtle observations that one can make about Euler's Totient Function. 
+	- The sum of all values of Totient function of all divisors of N is equal to N.
+	- The value of Totient function for a certain prime P will always be P-1 as the number P will always have a GCD of 1 with the numbers less than or equal to it except itself.
+	- For 2 number A and B, if GCD(A,B) == 1 then Totient(A) x Totient(B) = Totient(A.B)
+
+Also take note on rules :
+Let F denoes Phi(Q) function 
+- Rule 1 : If p is a prime then F(p) = p-1
+- Rule 2 : If a = p^n is a prime power then F(p^n) = p^n - (p^(n-1))
+- Rule 3 : If gcd(m,n) = 1 then F(mn) = F(m).F(n)
+
+Forumula for calculating F : 
+Suppose the only prime divisors of n are p1,p2,p3...,pk
+then F(n) = n * (1 - 1/p1) * (1 - 1/p2) * (1 - 1/p3)*....*(1 - 1/pk)
+eg;
+for 600, only prime divisors are 2,3,5
+	hence F(600) = 600 * (1-1/2) * (1-1/3) * (1-1/5)
+				 = 160
+
+
+
+
+

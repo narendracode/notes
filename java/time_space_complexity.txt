@@ -1,0 +1,6 @@
+In one second a machine kind of does ~10^8 operations.
+
+Log(x)z = y
+x = z ^ y
+
+

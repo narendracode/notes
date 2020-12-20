@@ -1,0 +1,12 @@
+
+Project success metrics :
+--------------------------
+Trivial constraints :
+	- Time 
+	- Quality 
+	- Cost
+Strategic Aspects :
+	- Effect on strategic objectives
+	- Relevance to users
+	- Sustainability
+

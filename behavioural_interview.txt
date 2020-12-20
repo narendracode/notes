@@ -1,0 +1,107 @@
+Feedback
+Can you give an example of a valuable piece of feedback that you have received?
+When did you receive constructive/negative/difficult feedback? How did you act upon this?
+
+Teamwork/Collaboration
+How would your co-workers describe you?
+
+Conflict/Disagreement
+Describe a time where you had a disagreement or conflict within your manager or colleague
+Can you describe a situation where you had to work with a decision that you didn't agree with?
+
+Mistakes/Failures
+Describe a technical mistake you have made recently? What did you learn?
+What's the most difficult/challenging problem you have had to solve?
+What is your biggest failure? What did you learn from this?
+
+Self Starter/Proactive
+If things aren’t going to plan, how do you move yourself/your projects forward?
+When did you set a goal? How did you achieve it? Can you describe a time you didn't achieve it?
+How do you seek out opportunities? (we really like candidates who are proactive in fixing/improving things) How do you communicate, both within your team and with other teams?
+How do you work in an environment if you had no manager or guidance? Describe how you would get your project/task done?
+
+General
+What motivates you?
+Where do you see yourself in 2-3 years? (career growth)
+
+
+--------
+
+1. Can you give an example of a valuable piece of feedback that you have received?
+-> In early part of my career when i was working in Hello Technology i was truely blessed to had colleagues who were very talented and had many years of experience in industry. In Hello Technology i had fair amount of struggle and at the same time lot of learning and fun too. In yearly review the one and only feedback given to me was to improve my communication skills. I took this feedback in a positive note and joined "Toastmasters International" in the very next week where i got change to improve my communication as well as leadership skills. Toastmaster helped me grow as person full of confidence, strike a meaningful conversation with new people. I learned how to express myself infront of people. I still feel that feedback given by my manager was the most valuable feedback.
+
+2. When did you receive constructive/negative/difficult feedback? How did you act upon this?
+-> While i was working in JWT, i had project manager Andy. Andy is cool guy, very calm in nature. I received an important feedback from him and that was about keeping emotions out of work and sometimes to take things light. What he means is that in projects there are multiple stakeholders involved and everyone's opinion matter. Project goes through multiple level's of approval. There can be scenarios where some features which are developed before, could be asked to rollback and again redo. Ofcourse it's a frustrating experience to be caught in between decision making but such sitations can happen. In such cases i used to feel emotionally drained or often shared unhappiness but Andy helped me understand about the nature of work. We had very open discussion about it and he started to include me in some of the meetings so that i would get a feel of what going on with decision makers and i can understand why things were asked to rollback multiple times. 
+
+I started to have open discussion with Andy about all the changes and rather than focussing on tasks, we started to work on collaborative manner and hence delivered good results.
+
+3. How would your co-workers describe you?
+-> My coworkers describe my as easily approachable and helpful person. For all the new hires my manager assigns me as their buddy which is also like a proof that my manager believes that i can help any new person joining the team and i can help them with any problem they may face on initial days.
+
+4. Describe a technical mistake you have made recently? What did you learn?
+-> Under quoting the complexity of internal systems. 
+-> 
+
+What's the most difficult/challenging problem you have had to solve?
+The most difficult or challenging problems according to me are production bugs or performance bottlenecks. 
+On prem deployment and caching. 
+
+
+
+What is your biggest failure? What did you learn from this?
+My biggest failure so far has been an instance when i completely misunderstood the underlying complexity of a project. I was give a task to implement a feature. It looked simple from the requirements and i estimated effort and shared my plan for execution. I was asked for review also but i took things for granted and overlooked the time taking tasks such as 
+
+
+5. Describe a time where you had a disagreement or conflict within your manager or colleague.
+-> While there are a number of efficient tools available for project management, tools for communication or even emails, yet some managers have the tendency to assign work verbally. This leads to lot of confusion and it indeed happened with me. It led to conflict and manager one time did not agreed. Such situations can be easily avoided if we make use of some good project tracking tools and mention task description in detail.
+
+6. Can you describe a situation where you had to work with a decision that you didn't agree with?
+-> When i first join this current company, i was given the task to implement some change request in the project. I started to dive into the code and found that there were many necessary elements missing. There was lot of code duplication, barely 30% code coverage, unit testing hardly covered complex test cases. I did my analysis and asked for a week time to work on refactoring of code and improving the code quality. From project delivery manager's perspective it was trade off whether to delay the deliverable or spend time to improve the necessary code quality. I was not given any time to work on improving the code quality instead asked to just focus on deliverables. It was hard to work on such code base so i was not agreed to this decision.
+
+
+Facebook's 5 core values :
+1. Be Bold :
+    Building great things means taking risks. We have a saying, "The riskies things is to take no risks." In a world that's changing so quickly, you're guaranteed to fail if you don't take any risks. We encourage to make bold decisions, even if that means being wrong some of the time.
+
+2. Focus on Impact :
+    To have the biggest impact, we need to focus on solving the most important problems. It sounds simple, but most companies do this poorly and waste a lot of time. We expect everyone at Facebook to be good at finding the biggest problems to work on.
+
+3. Move fast : Moving fast enables us to build more things and learn faster. We're less afraid of making mistakes than we are of losing opportunities by moving too slow. We are a culture of builders, the power is in your hands.
+
+4. Be Open : We believe that a more open world is a better world. Informed people make better decisions and have a greater impact, which is why we work hard to make sure evyerone at Facebook has access to as much information about the company as possible.
+
+5. Build Social Value : Facebook was created to make the world more open and connected, not just to build a company. We expect everyone at Facebook to focus every day on how to build real value for the world in everything they do.
+
+
+
+Q1. Times when you felt a huge sense of accomplishment or success?
+=> As a software engineer i feel extremely happy when the product developed by me going live and people actually use it. The best or rather emotional happy moment i had was when in one instance stakeholders actually offerred me voucher from portal developed by me only. I was working in J.Walter Thompson and i was developing projects for Changi Airport. It happened that there came a requirement when i was asked to drive a project which was about offering early checking air passengers some vouchers or discounts. I did it all alone myself and it went live. I became so happy when i was asked to select a voucher from the same portal when i arrivaed at the airport. That was such a nice feeling.
+
+
+Q2. Times when you fixed something that wasn’t working.
+=> I was new to the team and i came across a production issue where "payment batch job" was failing. It was important because it involved Netflix also. Job was suppose to download charging records from Netflix and an internal system is suppose to do the actual charging to end users. Since it was production issue hence it was very important to fix it as soon as possible. I started to locate the job and script. Scanned logs and managed to reproduce the error. Then i stared to look into code line by line and found out that code change was done but bash script was not updated. Hence fixed the script and everything started to work fine.
+It was quick, took me around 2 hours for me to fix it.
+
+Q3. A time when you had to make a challenging decision.
+=> I was managing a team and deliverables. The hardest decision was that i was asked to make a decision about layoff of one of my team member. He was hired by my Director even before i joined. My task was to manage team and keep everyone motivated to perform well. It was toughest because i was asked to justify whether to keep him or let him go. It was a tough decision because i did wanted him to succeed and replacing someone is always a costly process. It was a tough decision, i convinced my management that i am going to put him in "personal improvement plan" and discussed things every openly with my team mate. It turned out that he started to put more effort to work. Since i was in regular touch with him, it turned out that he had some personal issues and he started to perform well after that.
+
+
+Q4. A time when you had to influence a leader or team.
+=> When i joined this new company i found something missing and missing factor was the positivity. I called for meeting with team members and heard everyone. It turned out people were not being rewarded or appreciated for hard work they had put. They were low in morale. I started to keep a Tea time for everyone and it turned people started to work in more collaborated manner. We can see they were getting more work done.
+
+Q5. A time when you failed but learned
+=> In the early part of my career, i was shy to ask questions. It turned out i was assuming things wrong and got bad reviews and project delivery got delayed. Lessons learned, always clear all your doubts and have things well written and lock the requirements before you start to work on it.
+
+Q5. A time when you had to defuse​ an escalating situation.
+=> It happened recently, delivery manager asked me to provide effort in man/days for one of the task that was assigned to a different team. My effort estimation was way higher and i replied back considering the amount of work to be done here i can't accomodate the tasks looking into the bandwidth. Since it was important task to be delivered hence Delivery Manager wanted to get this done in anyway. It led to a discomfort situation for both of us. So we decided to have a meeting and cut down the scope and assess current bandwidth of team. Found a middle route and delievered the tasks. 
+
+
+Follow STAR technique to answer behavioral question :
+S - situation, Describe the situation ..
+T - Task, Describe what was the task all about
+A - Action, Describe what action did you take
+R - Result, Describe the result
+
+Tell me about a time when you experienced failure.
+I was leading the implementation of new transaction report to be sent to the datalake for analytics processing. Transaction table was huge with millions of rows and it was taking long time to generate reports hence for the optimization some indexes were introduced into the database. Query performance and testing was done in uat instances. It went well as expected. Since there was no live transaction in uat hence we could not spot the performance lag or other side affects. It was given signonff. Delivery was planned. As a protocal i requested for load testing to be performed before moving the change to production, with replicating live transaction and deployment steps. It turned out in last minute we found out that table was locking while creating indexes and live transactions were stuck as a result leading to timeout. 
+Clearing this could have caused a potential major outage to many customers. To avoid this i had to inform delivery manager to call off the delivery. It was a setback because the stakeholders were informed about the delivery plan and everyone had to put their deliverables on hold. 
