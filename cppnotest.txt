@@ -105,3 +105,57 @@ catch(bad_alloc& e){
 	cout<<"Other Exception"<<'\n';
 }
 
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Phone {
+	string name;
+	string size;
+
+public:
+	static string type;
+
+	Phone(string phoneName, string phoneSize) {
+		name = phoneName;
+		size = phoneSize;
+	}
+
+	static string getType() {
+		return type;
+	}
+
+	void makeCall() {
+		cout << "making call using " << name << endl;
+	}
+
+	void receiveCall() {
+		cout << "receiving call using " << name << endl;
+	}
+};
+
+string Phone::type = "hello";
+
+int main() {
+#ifndef ONLINE_JUDGE
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+#endif
+
+	ios_base::sync_with_stdio(0);
+
+	Phone phone1("iphone", "large");
+	phone1.makeCall();
+
+	Phone phone2("android", "large");
+	phone2.receiveCall();
+
+	cout << Phone::getType() << endl;
+
+	Phone::type = "hey";
+	cout << Phone::getType() << endl;
+
+	return 0;
+}
