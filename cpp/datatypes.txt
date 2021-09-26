@@ -1,0 +1,26 @@
+
+Primitive Data types :
+- int 
+    Requires 4 bytes of memory space
+    Range -2147483648 to 2147483647
+- char
+    Requires 1 byte of memory space
+    Range -128 to 127
+- bool
+    stores true, false
+- float
+    Requires 4 bytes of memory space
+- double
+    Requires 8 bytes of memory space
+- void
+
+datatype with type modifiers :
+short int               => 2 bytes, 	-32,768 to 32,767
+unsigned short int      => 2 bytes, 0 to 65,535
+unsigned int            => 4 bytes, 0 to 4,294,967,295
+int                     => 4 bytes, -2,147,483,648 to 2,147,483,647
+long int                => 4 bytes, -2,147,483,648 to 2,147,483,647
+unsigned long int       => 8 bytes, 0 to 4,294,967,295
+long long int           => 8 bytes, 	-(2^63) to (2^63)-1
+unsigned long long int  => 8 bytes, 0 to 18,446,744,073,709,551,615
+signed char             => 1, -128 to 127
