@@ -235,6 +235,18 @@ struct endCompare {
 	bool operator()(const Meeting &x, const Meeting &y) { return x.end > y.end; }
 };
 
+sort by pair 
+struct comp {
+  bool operator()(const pair<int,int> &x, const pair<int,int> &y) {
+        if(x.first >y.first) return true;
+        else if( y.first > x.first) return false;
+        else{
+            return y.second <= x.second;
+        }
+    }
+};
+
+
 //another example
 class ProfitCapital{
   public :
@@ -581,5 +593,29 @@ int main()
     return 0;
 }
 
+//split string
+ vector<string> explode( string s,  char c){
+	string buff{""};
+	vector<string> v;
+	
+	for(auto n:s){
+		if(n != c) buff+=n; else
+		if(n == c && buff != "") { v.push_back(buff); buff = ""; }
+	}
+	if(buff != "") v.push_back(buff);
+	
+	return v;
+}
 
+void tokenize(std::string const &str, const char delim,
+            std::vector<std::string> &out)
+{
+    // construct a stream from the string
+    std::stringstream ss(str);
+ 
+    std::string s;
+    while (std::getline(ss, s, delim)) {
+        out.push_back(s);
+    }
+}
 

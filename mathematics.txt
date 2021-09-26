@@ -1,0 +1,25 @@
+arithematic Progression
+-----------------------
+
+Series : a, a+d, a+2d, a+3d, ......, a+(n-1)d
+sum = (n/2)(2a + (n-1)d)
+average : (first + last) /2
+
+
+Geometric Progression:
+-----------------------
+Series : a,ar,ar^2, ar^3,.....
+=> ar0,ar^1,ar^2,ar^3,....
+
+nth term = ar^(n-1)
+
+Sum of geometric Progression:
+
+S = a(1-r^n)/(1-r)
+
+ 
+
+
+
+finding number of digits in a number :
+--------------------------------------

@@ -1,0 +1,146 @@
+Blockchain 
+----------
+Blockchain is a term used to describe DLT or Distributed Ledger Technology. Blockchain is used to create a storage system for data in a distributed and immutable manner.
+
+Blockchain is a technology that makes it possible to build applications where multiple parties can record transactions directly, without the need for a trusted, central authority to ensure that the transactions are verified. Blockchain enables this with the help of a peer-to-peer network where each participant in the network has access to a shared ledger where the transactions are recorded. These transactions are by design, immutable and cryptographically verifiable. At a high-level, blockchain technology consists of three components: a distributed ledger, consensus algorithm, and smart contracts.
+
+A ledger is a transactional log that keeps a complete record of the entire history of data changes. Ledgers are immutable and append-only by design, and the committed transactions are independently verifiable by each member in a network. In a blockchain technology, each member of the network maintains a copy.
+
+Consensus algorithms help ensure that the members in the network have an agreed-upon method to allow transactions and data to be committed to the ledger and execution of smart contract code. If the consensus requirements aren't met, then the transaction or operation is considered invalid.
+
+Smart contracts are code that is executed on the blockchain network. Often times, they define the rules of a business contract and are executed programatically when the preconditions for the contract are met.  
+
+
+Key Features :
+--------------
+Immutability - Data once written to a blockchain data store or ledger, it cannot be changed - it's there forever. A blockchain system ensures that even if a bit of data is changed at any level on the ledger, the entire system will report an 'invalid' state. And since the data is distributed on multiple systems, the actual data with a valid state can be recovered from one of the systems.
+
+Distribution - As long as you see data on a blockchain and it's in a 'valid' state on a majority 'distributed' nodes, you can trust that data to be accurate. The 'trust' is a key. The trust is achieved in a blockchain system by replicating the datastore on a number of peers(hosts) on the internet. If one of the misbehaving peers goes in an 'invalid' state, the other peers can filter it out. As long as there is a majority of peers agreeing to a common 'valid' state, you can completely trust the data that is stored on that system. This replication also guarantees high availability.
+
+
+Terminology :
+------------
+The data store that keeps all blockchain data is called a ledger. Each entry in the ledger is called a transaction. The transactions are timestamped and stored in groups of blocks.
+
+On the ledger you can only add a new transaction or read the old ones. You can not update or delete anything.
+
+The ledger is designed to be immutable using cryptographic algorithms (we will study in next chapter) and its distributed design. The ledger is replicated and maintained by multiple hosts or peers or nodes. This is why its called DLT or Distributed Ledger Technology.
+
+
+Hash Functions:
+----------------
+A hash function maps data of arbitrary length to a unique fixed length string, called digest.
+
+HASH(X) = Y
+Such that :
+- No other X’ can have HASH(X’) equal to Y. Its one to one mapping.
+- The size of Y is fixed and the size of X can be arbitrary.
+- Given Y you can not calculate X. Its a one-way function!
+
+This means that i can take a huge text file and compute it's unique digest using a hash function. If i send that file and it's computed hash along with it to a receiver, Bob, Bob can then recompute the hash to ensure that the content of that file were not corrupted in the transmission. When we download a file from the internet, it uses the same hash functions to verify it's integrity.
+
+Public Key Cryptography :
+-------------------------
+Public key cryptography is a cryptographic system used for the encryption/decryption of data. It is not one way like a hash function, meaning that the data, once encrypted, can be decrypted if you have the required key.
+
+You start by generating a special, related pair of keys. These keys can be generated in a pair only. They are output from single execution of a key generation algorithm.
+
+Key usage :
+----------
+Any key can lock or encrypt the data. To unlock or decrypt we need the other key. The only way to decrypt and make the data readable is by having the corresponding key.
+
+Blockchain System :
+-------------------
+In Blockchain system, data is stored in blocks of transactions. 
+"A timestamped log of transactions that is replicated on multiple peers".
+
+Distributed Consensus :
+-----------------------
+Now some of these peers might be evil and intentional report a tampered version of blockchain data. The entire network uses democracy to come to a concensus on the current state of data and any non-conformant or outlier peers are ignored/blocked.
+
+This means that in order for a blockchain network to be fair and valid, most of the nodes have to be fair. If 51% of the nodes are compromised the network is hacked. Since the networks are globally distributed, this is not a possibility.
+
+Data Storage in Blocks :
+------------------------
+Let's see how blockchain stores data in blocks. 
+
+
+Hyperledger Fabric :
+--------------------
+https://aws.amazon.com/blockchain/what-is-hyperledger-fabric/
+
+Hyperledger Fabric is an open source, permissioned blockchain framework, started in 2015 by The Linux Foundation. It is a modular, general-purpose framework that offers unique identity management and access control features, which make it suitable for a variety of industry applications such as track-and-trace of supply chains, trade finance, loyalty and rewards, as well as clearing and settlement of financial assets.
+
+Components of Blockchain Network :
+---------------------------------
+Let's get to know the components of a basic network.
+
+PEER :
+    - peer container: Runs the peer node
+    - couchdb container: Stores the state database of peer node.
+ORDERER : 
+    - orderer container: Solo orderer node to keep dev environment simple. In a real-world network the ordering service is distributed with multiple nodes communicating with each other.
+CERTIFICATE AUTHORITY :
+    - fabric-ca container : root certificate authority for issuing membership certificates to all nodes and users. Since we will use single CA, our network is comprised of a single org called "example.com".
+TOOLING:
+    - fabric-cli container: This container has some cli tools that help us interact with network nodes to deploy chaincodes etc.
+
+
+Edx - Blockchain understanding It's uses and implications
+---------------------------------------------------------
+Blockchain Components :
+- Ledger : A distributed, immutable historical record 
+- Peer Network : Stores, updates, and maintains the ledger 
+- Membership Services : User authentication, autorization and identity management
+- Smart contract : Program that runs on blockchain 
+- Wallet : Stores user's credentials
+- Events : Notifications of updates and actions on the blockchain 
+- Systems Management : Component creation, modification and monitoring
+- Systems Integration : Integration of blockchain with external systems
+
+
+Cryptography Key Terms :
+------------------------
+- Secret : The data which we are trying to protect 
+- Key : A piece of data used for encrypting and decrypting the secret 
+- Function : The process or function used to encrypt the secret 
+- Cipher : The encrypted secret data, the output of the function 
+
+The secret and key are passed to function to create the cipher.
+
+
+
+Courses :
+--------
+https://www.edx.org/course/blockchain-understanding-its-uses-and-implications
+https://www.edx.org/course/introduction-to-hyperledger-blockchain-technologie
+https://www.edx.org/course/identity-in-hyperledger-aries-indy-and-ursa
+https://training..linuxfoundation.org/training/hyperledger-fabric-fundamentals-lfd271/
+
+----- commands ---
+//provide the latest version.
+
+brew tap hyperledger/fabric
+brew install fabric-tools@1.3.0
+
+configtxgen -profile OneOrgOrdererGenesis -outputBlock ./config/genesis.block
+
+configtxgen -profile OneOrgChannel -outputCreateChannelTx ./config/channel.tx -channelID mychannel
+
+configtxgen -profile OneOrgChannel -outputAnchorPeersUpdate ./config/Org1MSPanchors.tx -channelID mychannel -asOrg Org1MSP
+
+docker network create net_basic
+
+docker-compose up -d
+
+docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@org1.example.com/msp" peer0.org1.example.com peer channel create -o orderer.example.com:7050 -c mychannel -f /etc/hyperledger/configtx/channel.tx
+
+docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@org1.example.com/msp" peer0.org1.example.com peer channel join -b mychannel.block
+
+
+docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode install -n landrec -v 1.0 -p "/opt/gopath/src/github.com" -l "node"
+
+docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode instantiate -o orderer.example.com:7050 -C mychannel -n landrec -l "node" -v 1.0 -c '{"Args":[]}' -P "OR ('Org1MSP.member','Org2MSP.member')"
+
+
+-------

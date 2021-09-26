@@ -1,0 +1,72 @@
+
+Fibonacci :
+-----------
+1. Count trailing zeros in a factorial
+2. Maximum power dividing factorial
+    Legenders's formula(when n is prime)
+3. Count Binary Strings with No Two Consecutive 1's 
+4. Dudney's cow
+5. Count ways to reach nth stair
+6. Find nth Fibonacci number in LogN   
+7. Sum of n fibonacci numbers
+8. Sum of squares of n fibonacci numbers
+9. Pisano Period
+10. Find Nth Fibonacci mode M
+
+
+Bitwise operators :
+-------------------
+1. count set bits
+2. Brian Kerningam's algorithms to count set bits
+3. check kth bit is set or not
+4. Power of two
+5. One odd occurring
+6. Two odd occurring
+7. Gray codes 
+8. powerset using bitwise
+
+Prime Numbers :
+----------------
+1. Efficient algorithm to check if a number is prime.
+2. Sieve of Eratosthenas
+3. Segmented Sieve
+
+Prime Factors :
+-----------------
+1. Print prime factor of number
+2. Smallest prime factors
+3. Prime factorization for multiple queries
+
+Divisors :
+------------
+1. All divisors of a number
+2. Numbers with exactly 3 divisors 
+3. Count divisors or factors
+4. Count factors for multiple queries
+5. sum of divisors(handle multiple queries)
+
+GCD, LCM :
+----------  
+1. Find GCD of number
+2. Implement Optimized Euclidean algorithm to calculate GCD 
+3. Find LCM of two numbers using Euclidean Algorithm
+4. Extended Euclidean Algorithm implmentation
+5. Bezout's identity
+6. Linear Diophantine Equation
+
+Number Theory :
+---------------
+1. Euler Totient Function
+
+
+Mathematics Permission
+-----------------------
+1. Inclusion exclusion principle (Or Condition)
+2. Inclusion exclusion principle (Not condition)
+3. Pigeonhole principle 
+4. Derangements
+5. Counting Derangements
+6. Subarray sum divisible by Size
+
+Modular Arithematic :
+--------------------
