@@ -1,0 +1,98 @@
+
+Three foundational features :
+Although Spring Boot provides many features, the three below are the most important : 
+
+- Simplify Dependency Management
+- Simplify Deployment
+- Auto-configuration
+
+Simplify Dependency Managment :
+-------------------------------
+Spring Boot simplifies dependency management using bill of materials(BOM) starter dependencies. So no need to worry about version problem, compatibility etc.
+
+Simplify Deployment :
+----------------------
+Spring Boot generates a self-executable fat jar where all the dependencies are packaged inside the JAR(including the container).
+
+Auto Configuration :
+----------------------
+Spring Boot Looks at the dependency available on the CLASSPATH
+Existing configuration for the application. Based on these, Spring Boot configures those frameworks without the need of configuring them explicitly. 
+
+
+SpringBoot specific annotations :
+--------------------------------
+
+@SpringBootApplication : It's a combination of the following three annotations. @SpringBootConfiguration, @EnableAutoConfiguration, @ComponentScan
+
+@SpringBootConfiguration is same as @Configuration annotation. It designates the class as a configuration class.
+
+@ComponentScan, this annotation enables component scanning. Any bean available in the classpath will be scanned by Spring Framework and registered in the IOC container. For example, classes market with @Component, @RestController, @Service will be registered with the Spring IOC container. 
+
+@EnableAutoConfiguration, This annotation enables the magical auto-configuration feature of Spring Boot. Now we know why the application failed during startup. Even thogh we have starter-web dependency available in the classpath, the auto-configuration was turned off due to the missing @SpringBootApplication annotation. As a result of this, the framework failed to configure the DispatherServlet and other required beans.
+
+@Autowired, It allows spring to resolve and inject colloborating beans into our bean. We can use autowiring on properties, setter and constructors.
+By default, Spring resolves @Autowired entries by type. If more than one bean of the same type is available in the container, the framework will throw a fatal exception. 
+Let's define a fooFormatter bean.
+
+@Component("fooFormatter")
+public class FooFormatter{
+    public String format() {
+        return "foo";
+    }
+}
+
+Autowired on properties :
+
+@Component
+public class FooService {
+    @Autowired
+    private FooFormatter fooFormatter;
+}
+
+
+Autowired on setters :
+
+@Component
+public class FooService {
+    private FooFormatter fooFormatter;
+    @Autowired
+    public void setFooFormatter(FooFormatter fooFormatter) {
+        this.fooFormatter = fooFormatter;
+    }
+}
+
+Autowired on constructors :
+@Component
+public class FooService {
+    private FooFormatter fooFormatter;
+
+    @Autowired
+    public FooService(FooFormatter fooFormatter){
+        this.fooFormatter = fooFormatter;
+    }
+}
+
+Spring Application Context :
+----------------------------
+SpringApplicationContext is where Spring holds instances of objects that it has identified to be managed and distributed automatically. These are called beans. Bean management and the opportunity for dependency injection are some of Spring's main features.
+
+Using the inversion of control principles(IOC), Spring collects instances from our application and uses them at the appropriate time.
+
+The ability to use annotations like @Autowired to inject spring-managed beans into our application is a driving force for creating powerful and scalable code in Spring.
+
+@Component is an annotation that allows spring to automatically detect our custom beans. In other words, without having to write any explicity code, Spring will :
+
+- Scan our application for classes annotated with @Component
+- Instantiate them and inject any specified dependenceis into them 
+- Inject them wherever needed
+
+Spring has provided a few specialized stereotype annotations like @Controller, @Service, @Repository. They all provide the same function as @Component. The reason they all act the same is that they are all composed annotations with @Component as meta-annotation for each of them.
+
+@ComponentScan. Spring uses @ComponentScan annotation to actually gather them all into it's ApplicationContext. 
+If we're writing a Spring Boot Application, it is helpful to know that @SpringBootApplication is a composed annotation that includes @ComponentScan As long as our @SpringBootApplication is at the root of our project, it will scan every @Component we define by default.
+However, in the case that our @SpringBootApplication cannot be at the root of our project or we want to scan outside sources, we can configure @ComponentScan explicitly to look in whatever package we specify, as long as it exists on the classpath.
+
+@Component vs. @Bean
+---------------------
+@Bean is also an annotation that Spring uses to gather beans at runtime, but it's not used at the class level. Rather we annotate methods with @Bean that Spring can store the method's result as Spring Bean.

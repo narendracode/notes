@@ -1,15 +1,18 @@
 
- 
-Dependency Injectin :
-In Dependency Injection, you do not have to create your objects but have to describe how they should be created. You don't connect your components and services together in the code directly, but describe which services are needed by which component in the configuration file. The IOC container will wire them up together.
-Dependency Injection is where spring searches for beans, once the appropriate bean is found, it autowires the bean to the depdendent class. Dependency Injection is the process where spring framework looks for the beans and identifies the dependencies,  and creates the instances of beans and autowires them.
-Dependency injection can be done in three ways : 
-	- Construction Injection
-	- Setter Injection
-	- Interface Injection
+Inversion of Control :
+---------------------- 
+Inversion of Control(IOC) is a principle in Software Engineering which transfers the control of objects or portions of a program to a container or a framework. IOC enables a framework to take control of the flow of a program and make calls to our custom code. 
 
+The advantages of this architecture are :
+- decoupling the execution of a task from its implementation
+- making it easier to switch between different implementations
+- greater modularity of a program
+- greater ease in testing a program by isolating a component or mocking its dependencies, and allowing components to communicate through contracts
 
-Inversion of Control : 
+We can achieve Inversion of Control through various mechanisms such as: Strategy design pattern, Service Locator pattern, Factory pattern, and Dependency Injection (DI).
+
+Dependency Injection is a pattern we can use to implement IOC, where the control being inverted is setting an object's dependencies. 
+
 In Tight Coupling the dependent class takes the responsibility of creating the dependency. Whereas, in loose coupling, we use @Autowired annotation over the dependency class and spring takes control of creating the instance and injects the dependency.
 IOC does the following things :
 	- Find beans
@@ -25,6 +28,14 @@ Benefits of IOC :
 	- It promotes loose coupling with minimal effort and lest intrusive mechanism.
 	- It supports eager instantiation and lazy loading of the services.
 
+
+Dependency Injectin :
+In Dependency Injection, you do not have to create your objects but have to describe how they should be created. You don't connect your components and services together in the code directly, but describe which services are needed by which component in the configuration file. The IOC container will wire them up together.
+Dependency Injection is where spring searches for beans, once the appropriate bean is found, it autowires the bean to the depdendent class. Dependency Injection is the process where spring framework looks for the beans and identifies the dependencies,  and creates the instances of beans and autowires them.
+Dependency injection can be done in three ways : 
+	- Construction Injection
+	- Setter Injection
+	- Interface Injection
 
 Application Context :
 It provides all the functionalities of Bean Factory and also provides things like AOP, i18n, web application context (request, session etc)
